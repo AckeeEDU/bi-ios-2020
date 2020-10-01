@@ -20,3 +20,14 @@ branch: `master`
 - úvod do mobilního vývoje
 - úvod do platformy iOS
 - ukázka prostředí Xcode
+
+## 3. Views
+
+branch: `03-views`
+
+- co je `UIView`
+- co je `UIControl` + `UIButton`
+- cviko +- reflektuje jak se dělalo UI v dobách, kdy iPhone měl pouze jeden rozměr, jak to dělat lépe si ukážeme na dalším cviku
+- [rozdíl point vs. pixel](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
+    - reflektuje různou jemnost displejů, počet px * scale displeje 
+    - aplikace pracuje s pointy
