@@ -58,6 +58,9 @@ class ViewController: UIViewController {
         extended.toggle()
 
         descriptionLabelHeightConstraint.constant = extended ? descriptionLabel.intrinsicContentSize.height : 20
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
