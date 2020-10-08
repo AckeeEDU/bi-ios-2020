@@ -17,7 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNl-Zr-kHf">
-                                <rect key="frame" x="186" y="442.5" width="42" height="21"/>
+                                <rect key="frame" x="332" y="84" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Tt5-sy-Ktv"/>
+                                    <constraint firstAttribute="width" constant="42" id="d7I-Gl-vYU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,8 +30,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zNl-Zr-kHf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="8fr-v5-fVn"/>
-                            <constraint firstItem="zNl-Zr-kHf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WNp-2n-wGq"/>
+                            <constraint firstItem="zNl-Zr-kHf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Hzo-7l-5g6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zNl-Zr-kHf" secondAttribute="trailing" constant="40" id="M3i-pJ-qjl"/>
                         </constraints>
                     </view>
                 </viewController>
