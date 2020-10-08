@@ -44,3 +44,13 @@ branch: `03-views`
 - [rozdíl point vs. pixel](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
     - reflektuje různou jemnost displejů, počet px * scale displeje 
     - aplikace pracuje s pointy
+
+## 4. Autolayout
+
+branch: `04-autolayout`
+
+- Autolayout v interface builderu
+- `intrinsicContentSize`, `contentHugging` a `contentCompressionResistance`
+- Autolayout v kódu (NSLayoutConstraint a `translatesAutoresizingMaskIntoConstraints`)
+- Úprava constraints v runtime (update constant)
+- Jednoduché animování autolayoutu
