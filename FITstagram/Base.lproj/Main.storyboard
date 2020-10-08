@@ -16,23 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-zD-YU1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-zD-YU1">
                                 <rect key="frame" x="20" y="44" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="CO9-tp-Lzi"/>
+                                    <constraint firstAttribute="height" constant="53" id="QbU-BP-93z"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rsl-40-9Cv">
-                                <rect key="frame" x="0.0" y="108" width="414" height="476"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rsl-40-9Cv">
+                                <rect key="frame" x="0.0" y="108" width="414" height="448"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS5-wS-LA8" customClass="LikeButton" customModule="FITstagram" customModuleProvider="target">
-                                <rect key="frame" x="20" y="592" width="122" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS5-wS-LA8" customClass="LikeButton" customModule="FITstagram" customModuleProvider="target">
+                                <rect key="frame" x="20" y="592" width="30" height="30"/>
                                 <state key="normal" title="Like"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mr-TO-YBm" userLabel="More Button">
-                                <rect key="frame" x="366" y="591" width="36" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mr-TO-YBm" userLabel="More Button">
+                                <rect key="frame" x="363" y="586" width="39" height="42"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="ellipsis" catalog="system"/>
                             </button>
@@ -43,9 +43,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1N-gK-3Te">
-                                <rect key="frame" x="329" y="54" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1N-gK-3Te">
+                                <rect key="frame" x="334" y="54" width="60" height="30"/>
                                 <state key="normal" title="Unfollow"/>
                                 <connections>
                                     <action selector="followButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="08n-1a-UCh"/>
@@ -54,6 +53,20 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9mr-TO-YBm" secondAttribute="trailing" constant="12" id="17f-yF-O4N"/>
+                            <constraint firstItem="Rsl-40-9Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G1v-5f-Yri"/>
+                            <constraint firstItem="Rsl-40-9Cv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="JZ7-on-RE0"/>
+                            <constraint firstItem="T1N-gK-3Te" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="MHy-X5-fNG"/>
+                            <constraint firstItem="Rsl-40-9Cv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="OwG-yo-Lsz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="GR3-zD-YU1" secondAttribute="top" constant="1.5" id="SXM-64-71s"/>
+                            <constraint firstItem="nS5-wS-LA8" firstAttribute="top" secondItem="Rsl-40-9Cv" secondAttribute="bottom" constant="36" id="dEf-xj-MUu"/>
+                            <constraint firstItem="nS5-wS-LA8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gkA-69-elE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rsl-40-9Cv" secondAttribute="trailing" id="hBn-JA-eDs"/>
+                            <constraint firstItem="GR3-zD-YU1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jiT-zn-bVz"/>
+                            <constraint firstItem="9mr-TO-YBm" firstAttribute="centerY" secondItem="nS5-wS-LA8" secondAttribute="centerY" id="l5q-rZ-ZBa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T1N-gK-3Te" secondAttribute="trailing" constant="20" id="t4C-l6-5XN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="U1M-0I-4O4" id="Dn2-5N-mVR"/>
