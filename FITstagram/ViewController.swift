@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -26,9 +27,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let photoHeader = PhotoHeader(frame: CGRect(x: 20, y: 50, width: 100, height: 45))
-        photoHeader.center.x = view.center.x
+        let photoHeader = PhotoHeader(frame: CGRect.zero)
+        photoHeader.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(photoHeader)
+
+        let margin = self.view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            photoHeader.leftAnchor.constraint(equalTo: personImageView.rightAnchor),
+            photoHeader.rightAnchor.constraint(equalTo: followButton.leftAnchor),
+            photoHeader.topAnchor.constraint(equalTo: margin.topAnchor),
+            photoHeader.bottomAnchor.constraint(equalTo: photoImageView.topAnchor)
+        ])
+
         photoHeader.usernameLabel.text = "olejnjak"
         photoHeader.locationLabel.text = "Praha"
         

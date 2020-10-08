@@ -14,18 +14,34 @@ class PhotoHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let usernameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        let usernameLabel = UILabel()
+        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         usernameLabel.text = "Username"
         usernameLabel.textAlignment = .center
         usernameLabel.font = .boldSystemFont(ofSize: 16)
         addSubview(usernameLabel)
+
+        let margin = self.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            usernameLabel.leftAnchor.constraint(equalTo: margin.leftAnchor),
+            usernameLabel.rightAnchor.constraint(equalTo: margin.rightAnchor),
+            usernameLabel.topAnchor.constraint(equalTo: margin.topAnchor)
+        ])
+
         self.usernameLabel = usernameLabel
         
-        let locationLabel = UILabel(frame: CGRect(x: 0, y: 25, width: 100, height: 20))
+        let locationLabel = UILabel()
+        locationLabel.translatesAutoresizingMaskIntoConstraints = false
         locationLabel.text = "Location"
         locationLabel.textAlignment = .center
         locationLabel.font = .systemFont(ofSize: 14)
         addSubview(locationLabel)
+
+        NSLayoutConstraint.activate([
+            locationLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 8),
+            locationLabel.centerXAnchor.constraint(equalTo: margin.centerXAnchor)
+        ])
+
         self.locationLabel = locationLabel
     }
     

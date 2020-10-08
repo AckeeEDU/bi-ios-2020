@@ -79,6 +79,7 @@
                         <outlet property="followButton" destination="T1N-gK-3Te" id="wVD-ZF-4W3"/>
                         <outlet property="likeButton" destination="nS5-wS-LA8" id="6uY-aq-zmO"/>
                         <outlet property="moreButton" destination="9mr-TO-YBm" id="TkC-0m-Wj5"/>
+                        <outlet property="personImageView" destination="GR3-zD-YU1" id="7Ze-An-d7W"/>
                         <outlet property="photoImageView" destination="Rsl-40-9Cv" id="ohp-HL-JZC"/>
                     </connections>
                 </viewController>
