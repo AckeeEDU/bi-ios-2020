@@ -36,9 +36,11 @@
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="ellipsis" catalog="system"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nejakej opravdu dlouhej text na nekolik radek, tohle si myslim, ze nebude dostatecne dlouhy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1M-0I-4O4">
-                                <rect key="frame" x="20" y="630" width="374" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nejakej opravdu dlouhej text na nekolik radek, tohle si myslim, ze nebude dostatecne dlouhy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1M-0I-4O4">
+                                <rect key="frame" x="20" y="630" width="374" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="TzK-9l-JWa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,20 +58,24 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9mr-TO-YBm" secondAttribute="trailing" constant="12" id="17f-yF-O4N"/>
                             <constraint firstItem="Rsl-40-9Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G1v-5f-Yri"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U1M-0I-4O4" secondAttribute="trailing" constant="20" id="GY0-kL-0Lp"/>
                             <constraint firstItem="Rsl-40-9Cv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="JZ7-on-RE0"/>
                             <constraint firstItem="T1N-gK-3Te" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="MHy-X5-fNG"/>
                             <constraint firstItem="Rsl-40-9Cv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="OwG-yo-Lsz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="GR3-zD-YU1" secondAttribute="top" constant="1.5" id="SXM-64-71s"/>
+                            <constraint firstItem="U1M-0I-4O4" firstAttribute="top" secondItem="nS5-wS-LA8" secondAttribute="bottom" constant="8" symbolic="YES" id="W5U-5h-CG3"/>
                             <constraint firstItem="nS5-wS-LA8" firstAttribute="top" secondItem="Rsl-40-9Cv" secondAttribute="bottom" constant="36" id="dEf-xj-MUu"/>
                             <constraint firstItem="nS5-wS-LA8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gkA-69-elE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rsl-40-9Cv" secondAttribute="trailing" id="hBn-JA-eDs"/>
                             <constraint firstItem="GR3-zD-YU1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jiT-zn-bVz"/>
                             <constraint firstItem="9mr-TO-YBm" firstAttribute="centerY" secondItem="nS5-wS-LA8" secondAttribute="centerY" id="l5q-rZ-ZBa"/>
+                            <constraint firstItem="U1M-0I-4O4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="o2S-S0-Bzp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T1N-gK-3Te" secondAttribute="trailing" constant="20" id="t4C-l6-5XN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="U1M-0I-4O4" id="Dn2-5N-mVR"/>
+                        <outlet property="descriptionLabelHeightConstraint" destination="TzK-9l-JWa" id="xL3-zR-dow"/>
                         <outlet property="followButton" destination="T1N-gK-3Te" id="wVD-ZF-4W3"/>
                         <outlet property="likeButton" destination="nS5-wS-LA8" id="6uY-aq-zmO"/>
                         <outlet property="moreButton" destination="9mr-TO-YBm" id="TkC-0m-Wj5"/>

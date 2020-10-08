@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabelHeightConstraint: NSLayoutConstraint!
+
+    var extended = false
     
     private var likes = 87 {
         didSet {
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         photoHeader.locationLabel.text = "Praha"
         
         photoImageView.image = UIImage(named: "image")
-        descriptionLabel.text = "Auto"
+        descriptionLabel.text = "Nejakej opravdu dlouhej text na nekolik radek, tohle si myslim, ze nebude dostatecne dlouhy"
         
         let likeAction = UIAction { [weak self] _ in
             self?.likes += 1
@@ -51,6 +54,10 @@ class ViewController: UIViewController {
     
     @objc private func moreButtonTapped() {
         print("More button tapped!")
+
+        extended.toggle()
+
+        descriptionLabelHeightConstraint.constant = extended ? descriptionLabel.intrinsicContentSize.height : 20
     }
 }
 
