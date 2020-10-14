@@ -15,40 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-sY-S6h">
-                                <rect key="frame" x="20" y="246" width="183.66666666666666" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.4941176471" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e43-fW-TTe">
-                                <rect key="frame" x="352.66666666666669" y="246" width="41.333333333333314" height="21"/>
-                                <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clc-jz-NA3">
-                                <rect key="frame" x="20" y="326" width="143" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" priority="999" constant="46" id="uOn-cN-VqW"/>
-                                </constraints>
-                                <state key="normal" title="Long title button text"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ZuU-sY-S6h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="202" id="28X-M6-lrM"/>
-                            <constraint firstItem="ZuU-sY-S6h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2ov-ns-3G3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e43-fW-TTe" secondAttribute="trailing" constant="20" id="MJg-Ck-eDo"/>
-                            <constraint firstItem="Clc-jz-NA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YCf-WG-lTo"/>
-                            <constraint firstItem="e43-fW-TTe" firstAttribute="leading" secondItem="ZuU-sY-S6h" secondAttribute="trailing" constant="149" id="bTN-If-vzL"/>
-                            <constraint firstItem="Clc-jz-NA3" firstAttribute="top" secondItem="ZuU-sY-S6h" secondAttribute="bottom" constant="59" id="kor-ok-Ydd"/>
-                            <constraint firstItem="e43-fW-TTe" firstAttribute="centerY" secondItem="ZuU-sY-S6h" secondAttribute="centerY" id="waN-AZ-eSL"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
