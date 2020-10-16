@@ -10,10 +10,11 @@
 - Ideálně začněte až po shlédnutí 5. cvičení
     - řeší se tam přechody mezi obrazovkami a po 5. cvičení budete mít obě obrazovky připravené
     - pokud to budete dělat před pětkou, stačí obě obrazovky úplně samostatně a já si je při kontrole přepnu v kódu nebo ve storyboardu
-- Odevzdání přes GitHub
-    - Bohužel nejde udělat private fork public repa :-/
-    - Udělejte si nové private repo a do něj si udělejte mirror tohoto, tady návod: [Duplicating a repository - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)
-    - Do vašeho private repozitáře vypracujte úkol a přidejte `@janmisar` a `@lukashromadnik`
+- **Odevzdání přes MS teams**
+    - Odevzdat zip s kompletním projektem
+    - Odevzdat link na váš GitHub repozitář
+        - Udělejte si nové private repo a do něj si udělejte mirror tohoto, tady návod: [Duplicating a repository - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)
+        - Do vašeho private repozitáře vypracujte úkol a přidejte `@janmisar` a `@lukashromadnik`
 
 ## Nový post
 - Textová tlačítka *Cancel* a *Create*
