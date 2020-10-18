@@ -15,6 +15,7 @@
 		69E1DD8E2525EBE500904133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E1DD8C2525EBE500904133 /* LaunchScreen.storyboard */; };
 		69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD962525F72A00904133 /* PhotoHeader.swift */; };
 		69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD992525FADD00904133 /* LikeButton.swift */; };
+		A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		69E1DD8F2525EBE500904133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1DD962525F72A00904133 /* PhotoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeader.swift; sourceTree = "<group>"; };
 		69E1DD992525FADD00904133 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
 				69E1DD832525EBE500904133 /* SceneDelegate.swift */,
 				69E1DD852525EBE500904133 /* ViewController.swift */,
+				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
 				69E1DD872525EBE500904133 /* Main.storyboard */,
 				69E1DD8A2525EBE500904133 /* Assets.xcassets */,
 				69E1DD8C2525EBE500904133 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E1DD862525EBE500904133 /* ViewController.swift in Sources */,
+				A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */,
 				69E1DD822525EBE500904133 /* AppDelegate.swift in Sources */,
 				69E1DD842525EBE500904133 /* SceneDelegate.swift in Sources */,
 				69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */,
