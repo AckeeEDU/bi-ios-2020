@@ -10,7 +10,7 @@
 - Ideálně začněte až po shlédnutí 5. cvičení
     - řeší se tam přechody mezi obrazovkami a po 5. cvičení budete mít obě obrazovky připravené
     - pokud to budete dělat před pětkou, stačí obě obrazovky úplně samostatně a já si je při kontrole přepnu v kódu nebo ve storyboardu
-- **Odevzdání přes MS teams**
+- **Odevzdání přes MS teams** (edit: stačí si vybrat jednu z variant)
     - Odevzdat zip s kompletním projektem
     - Odevzdat link na váš GitHub repozitář
         - Udělejte si nové private repo a do něj si udělejte mirror tohoto, tady návod: [Duplicating a repository - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)
