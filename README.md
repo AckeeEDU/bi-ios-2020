@@ -54,3 +54,19 @@ branch: `04-autolayout`
 - Autolayout v kódu (NSLayoutConstraint a `translatesAutoresizingMaskIntoConstraints`)
 - Úprava constraints v runtime (update constant)
 - Jednoduché animování autolayoutu
+
+## 5. ViewControllers
+
+- Nastavení `rootViewController`u v kódu + inicializace `UIViewController`u jak přímo v kódu, tak pomocí Storyboardu
+- Lifecycle controllerů
+    * `init`
+    * `loadView`
+    * `viewDidLoad`
+    * `viewWillAppear`
+    * `viewDidAppear`
+    * `viewWillDisappear`
+    * `viewDidDisappear`
+    * `deinit`
+- `UINavigationController` a nastavení přes `navigationItem`
+- `UITabBarController` a nastavení přes `tabBarItem`
+- Základní přechody mezi obrazovkami `push`, `present`
