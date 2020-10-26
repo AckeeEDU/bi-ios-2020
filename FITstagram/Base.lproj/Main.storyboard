@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="FeedViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,10 +106,121 @@
             </objects>
             <point key="canvasLocation" x="-658" y="-137"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kii-Pd-JgQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWy-0I-eIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="AddPhotoNavigationController" id="eOQ-6z-ufN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jBf-gJ-WLR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="img-sG-4xd" kind="relationship" relationship="rootViewController" id="F6J-8g-sXM"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="172" y="-137"/>
+        </scene>
+        <!--Add Photo View Controller-->
+        <scene sceneID="DaH-S9-u5T">
+            <objects>
+                <viewController storyboardIdentifier="AddPhotoViewController" id="img-sG-4xd" customClass="AddPhotoViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xEU-6x-7Uo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhf-oI-ch3">
+                                <rect key="frame" x="16" y="108" width="382" height="94"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="mE1-Om-g1R"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aru-sx-EW8">
+                                <rect key="frame" x="16" y="224" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Ga-Vns">
+                                <rect key="frame" x="378" y="222" width="20" height="22"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="locationTapped" destination="img-sG-4xd" eventType="touchUpInside" id="ekY-6N-Lbx"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMI-gr-s1V">
+                                <rect key="frame" x="16" y="268" width="382" height="382"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XMI-gr-s1V" secondAttribute="height" multiplier="1:1" id="EuK-hH-dzA"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMy-rl-jMm">
+                                <rect key="frame" x="163.5" y="444" width="87" height="30"/>
+                                <state key="normal" title="Select photo"/>
+                                <connections>
+                                    <action selector="selectPhotoTapped" destination="img-sG-4xd" eventType="touchUpInside" id="gdW-Tn-1Sc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oXO-yY-mwN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Aru-sx-EW8" firstAttribute="leading" secondItem="oXO-yY-mwN" secondAttribute="leading" constant="16" id="1a1-YP-EeC"/>
+                            <constraint firstItem="5y5-Ga-Vns" firstAttribute="top" secondItem="jhf-oI-ch3" secondAttribute="bottom" constant="20" id="3Y0-to-edJ"/>
+                            <constraint firstItem="PMy-rl-jMm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XMI-gr-s1V" secondAttribute="leading" constant="16" id="7wt-Gv-QkG"/>
+                            <constraint firstItem="Aru-sx-EW8" firstAttribute="top" secondItem="jhf-oI-ch3" secondAttribute="bottom" constant="22" id="FJT-Se-GuO"/>
+                            <constraint firstItem="PMy-rl-jMm" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="XMI-gr-s1V" secondAttribute="trailing" constant="-16" id="KY4-Xb-5ZD"/>
+                            <constraint firstItem="jhf-oI-ch3" firstAttribute="leading" secondItem="oXO-yY-mwN" secondAttribute="leading" constant="16" id="Led-wu-k3D"/>
+                            <constraint firstItem="oXO-yY-mwN" firstAttribute="trailing" secondItem="jhf-oI-ch3" secondAttribute="trailing" constant="16" id="SiS-qh-oKi"/>
+                            <constraint firstItem="oXO-yY-mwN" firstAttribute="trailing" secondItem="XMI-gr-s1V" secondAttribute="trailing" constant="16" id="Vhu-BA-YkA"/>
+                            <constraint firstItem="XMI-gr-s1V" firstAttribute="top" secondItem="Aru-sx-EW8" secondAttribute="bottom" constant="23" id="dav-5v-NFz"/>
+                            <constraint firstItem="oXO-yY-mwN" firstAttribute="trailing" secondItem="5y5-Ga-Vns" secondAttribute="trailing" constant="16" id="eJF-be-cj5"/>
+                            <constraint firstItem="PMy-rl-jMm" firstAttribute="centerY" secondItem="XMI-gr-s1V" secondAttribute="centerY" id="eOB-SJ-j6y"/>
+                            <constraint firstItem="PMy-rl-jMm" firstAttribute="centerX" secondItem="XMI-gr-s1V" secondAttribute="centerX" id="er6-2h-cf5"/>
+                            <constraint firstItem="5y5-Ga-Vns" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Aru-sx-EW8" secondAttribute="trailing" constant="16" id="nTv-ea-1ox"/>
+                            <constraint firstItem="XMI-gr-s1V" firstAttribute="leading" secondItem="oXO-yY-mwN" secondAttribute="leading" constant="16" id="vYS-oj-rdR"/>
+                            <constraint firstItem="jhf-oI-ch3" firstAttribute="top" secondItem="oXO-yY-mwN" secondAttribute="top" constant="20" id="zFZ-OA-Tpo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="og7-Mw-Eap">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="lkc-Sw-y5J" userLabel="Cancel">
+                            <connections>
+                                <action selector="cancelTapped" destination="img-sG-4xd" id="ot3-OL-RiZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="act-Kb-9tO" userLabel="Create">
+                            <connections>
+                                <action selector="createTapped" destination="img-sG-4xd" id="k1X-mA-qKF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="XMI-gr-s1V" id="Fze-xA-K8C"/>
+                        <outlet property="locationButton" destination="5y5-Ga-Vns" id="xVS-kt-7iM"/>
+                        <outlet property="locationLabel" destination="Aru-sx-EW8" id="iHw-JP-duG"/>
+                        <outlet property="selectPhotoButton" destination="PMy-rl-jMm" id="pII-X6-QLg"/>
+                        <outlet property="textView" destination="jhf-oI-ch3" id="jZr-El-sem"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rlw-3r-VRh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="-137"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -27,13 +27,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.tabBarItem.title = "Feed"
         navigationController.tabBarItem.image = UIImage(systemName: "list.bullet")
         
-        let profileController = DummyViewController(color: .yellow)
+        let profileController = ProfileViewController(nibName: nil, bundle: nil)
         profileController.tabBarItem.title = "Profile"
         profileController.tabBarItem.image = UIImage(systemName: "person")
-        let profileNavigationController = UINavigationController(rootViewController: profileController)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [navigationController, profileNavigationController]
+        tabBarController.viewControllers = [navigationController, profileController]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

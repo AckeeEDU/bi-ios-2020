@@ -9,20 +9,22 @@
 /* Begin PBXBuildFile section */
 		69E1DD822525EBE500904133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD812525EBE500904133 /* AppDelegate.swift */; };
 		69E1DD842525EBE500904133 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD832525EBE500904133 /* SceneDelegate.swift */; };
-		69E1DD862525EBE500904133 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD852525EBE500904133 /* ViewController.swift */; };
+		69E1DD862525EBE500904133 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD852525EBE500904133 /* FeedViewController.swift */; };
 		69E1DD892525EBE500904133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E1DD872525EBE500904133 /* Main.storyboard */; };
 		69E1DD8B2525EBE500904133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E1DD8A2525EBE500904133 /* Assets.xcassets */; };
 		69E1DD8E2525EBE500904133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E1DD8C2525EBE500904133 /* LaunchScreen.storyboard */; };
 		69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD962525F72A00904133 /* PhotoHeader.swift */; };
 		69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD992525FADD00904133 /* LikeButton.swift */; };
 		A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */; };
+		A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */; };
+		A3EF6BCF2546CC4B0060602F /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		69E1DD7E2525EBE500904133 /* FITstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E1DD812525EBE500904133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69E1DD832525EBE500904133 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		69E1DD852525EBE500904133 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69E1DD852525EBE500904133 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		69E1DD882525EBE500904133 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69E1DD8A2525EBE500904133 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69E1DD8D2525EBE500904133 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +32,8 @@
 		69E1DD962525F72A00904133 /* PhotoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeader.swift; sourceTree = "<group>"; };
 		69E1DD992525FADD00904133 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,9 @@
 			children = (
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
 				69E1DD832525EBE500904133 /* SceneDelegate.swift */,
-				69E1DD852525EBE500904133 /* ViewController.swift */,
+				A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */,
+				69E1DD852525EBE500904133 /* FeedViewController.swift */,
+				A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */,
 				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
 				69E1DD872525EBE500904133 /* Main.storyboard */,
 				69E1DD8A2525EBE500904133 /* Assets.xcassets */,
@@ -146,10 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E1DD862525EBE500904133 /* ViewController.swift in Sources */,
+				69E1DD862525EBE500904133 /* FeedViewController.swift in Sources */,
+				A3EF6BCF2546CC4B0060602F /* AddPhotoViewController.swift in Sources */,
 				A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */,
 				69E1DD822525EBE500904133 /* AppDelegate.swift in Sources */,
 				69E1DD842525EBE500904133 /* SceneDelegate.swift in Sources */,
+				A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */,
 				69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */,
 				69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */,
 			);

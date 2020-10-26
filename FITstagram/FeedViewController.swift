@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FeedViewController.swift
 //  FITstagram
 //
 //  Created by Jakub Olejník on 01.10.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedViewController: UIViewController {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var personButton: UIButton!
@@ -60,8 +60,7 @@ class ViewController: UIViewController {
         personButton.addTarget(self, action: #selector(personTapped), for: .touchUpInside)
         
         navigationItem.title = "Feed"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         
         navigationController?.navigationBar.isTranslucent = false
     }
@@ -86,6 +85,12 @@ class ViewController: UIViewController {
 //        present(controller, animated: true)
         
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc private func addButtonTapped() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "AddPhotoNavigationController")
+        present(controller, animated: true)
     }
 }
 
