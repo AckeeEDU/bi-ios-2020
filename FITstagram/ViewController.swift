@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var personImageView: UIImageView!
+    @IBOutlet weak var personButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 
         let margin = self.view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            photoHeader.leftAnchor.constraint(equalTo: personImageView.rightAnchor),
+            photoHeader.leftAnchor.constraint(equalTo: personButton.rightAnchor),
             photoHeader.rightAnchor.constraint(equalTo: followButton.leftAnchor),
             photoHeader.topAnchor.constraint(equalTo: margin.topAnchor),
             photoHeader.bottomAnchor.constraint(equalTo: photoImageView.topAnchor)
@@ -56,6 +56,14 @@ class ViewController: UIViewController {
         
         followButton.setTitle("Follow", for: .normal)
         followButton.setTitle("Unfollow", for: .selected)
+        
+        personButton.addTarget(self, action: #selector(personTapped), for: .touchUpInside)
+        
+        navigationItem.title = "Feed"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     @IBAction func followButtonTapped(_ sender: UIButton) {
@@ -71,6 +79,13 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    @objc private func personTapped() {
+        let controller = DummyViewController(color: .red)
+//        present(controller, animated: true)
+        
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
