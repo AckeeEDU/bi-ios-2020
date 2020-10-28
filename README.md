@@ -70,3 +70,16 @@ branch: `04-autolayout`
 - `UINavigationController` a nastavení přes `navigationItem`
 - `UITabBarController` a nastavení přes `tabBarItem`
 - Základní přechody mezi obrazovkami `push`, `present`
+
+## 6. ScrollViews
+
+branch: `06-scrollViews`
+
+- scrollovací prvky `UIScrollView`, `UITableView` & `UICollectionView`
+- simple layout pomocí `UIScrollView`
+- reusable scrolling views pomocí `UITableView`
+- multicolumn layout pomocí `UICollectionView`
+- plnění dat do `UITableView` pomocí `UITableViewDiffableDataSource` (analogicky pro `UICollectionView`)
+- plnění dat do `UICollectionView` pomocí `UITableViewDiffableDataSource` (analogicky pro `UICollectionView`)
+- konfigurace buněk `UITableView` pomocí subclass `UITableViewCell` (analogicky pro `UICollectionView`)
+- konfigurace buněk `UICollectionView` pomocí subclass `UIContentConfiguration` (analogicky pro `UITableView`)

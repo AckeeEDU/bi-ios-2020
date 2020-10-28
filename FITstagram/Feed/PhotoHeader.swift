@@ -13,7 +13,17 @@ class PhotoHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    // MARK: - Private helpers
+    
+    private func setup() {
         let usernameLabel = UILabel()
         usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         usernameLabel.text = "Username"
@@ -38,14 +48,11 @@ class PhotoHeader: UIView {
         addSubview(locationLabel)
 
         NSLayoutConstraint.activate([
-            locationLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 8),
-            locationLabel.centerXAnchor.constraint(equalTo: margin.centerXAnchor)
+            locationLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor),
+            locationLabel.centerXAnchor.constraint(equalTo: margin.centerXAnchor),
+            locationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
 
         self.locationLabel = locationLabel
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

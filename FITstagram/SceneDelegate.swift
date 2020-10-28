@@ -21,18 +21,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "ViewController")
+        let controller = storyboard.instantiateViewController(identifier: "FeedViewController")
         
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.tabBarItem.title = "Feed"
         navigationController.tabBarItem.image = UIImage(systemName: "list.bullet")
+        
+        let searchVC = SearchViewController()
+        let searchNav = UINavigationController(rootViewController: searchVC)
+        searchVC.title = "Search"
+        searchNav.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         
         let profileController = ProfileViewController(nibName: nil, bundle: nil)
         profileController.tabBarItem.title = "Profile"
         profileController.tabBarItem.image = UIImage(systemName: "person")
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [navigationController, profileController]
+        tabBarController.viewControllers = [navigationController, searchNav, profileController]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

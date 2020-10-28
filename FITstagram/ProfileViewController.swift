@@ -27,6 +27,27 @@ final class ProfileViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
+        ])
+        
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+        ])
+        
         let profileImageView = UIImageView(image: UIImage(named: "image"))
         profileImageView.backgroundColor = .lightGray
         profileImageView.layer.cornerRadius = 4
@@ -34,11 +55,11 @@ final class ProfileViewController: UIViewController {
         profileImageView.layer.borderColor = UIColor.darkGray.cgColor
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.clipsToBounds = true
-        view.addSubview(profileImageView)
+        contentView.addSubview(profileImageView)
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            profileImageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            profileImageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             profileImageView.heightAnchor.constraint(equalToConstant: 120),
             profileImageView.widthAnchor.constraint(equalToConstant: 120)
         ])
@@ -47,7 +68,7 @@ final class ProfileViewController: UIViewController {
         let usernameLabel = UILabel()
         usernameLabel.text = username
         usernameLabel.font = .systemFont(ofSize: 36)
-        view.addSubview(usernameLabel)
+        contentView.addSubview(usernameLabel)
         usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             usernameLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor),
@@ -58,11 +79,11 @@ final class ProfileViewController: UIViewController {
         let editUsernameButton = UIButton(type: .system)
         editUsernameButton.setImage(UIImage(systemName: "pencil"), for: .normal)
         editUsernameButton.setContentCompressionResistancePriority(.required, for: .horizontal)
-        view.addSubview(editUsernameButton)
+        contentView.addSubview(editUsernameButton)
         editUsernameButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             editUsernameButton.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor),
-            editUsernameButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            editUsernameButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             editUsernameButton.leadingAnchor.constraint(greaterThanOrEqualTo: usernameLabel.trailingAnchor, constant: 16)
         ])
         self.editUsernameButton = editUsernameButton
@@ -70,7 +91,7 @@ final class ProfileViewController: UIViewController {
         let postsLabel = UILabel()
         postsLabel.text = "posts: 154"
         postsLabel.font = .systemFont(ofSize: 16)
-        view.addSubview(postsLabel)
+        contentView.addSubview(postsLabel)
         postsLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             postsLabel.topAnchor.constraint(equalTo: editUsernameButton.bottomAnchor, constant: 16),
@@ -83,17 +104,17 @@ final class ProfileViewController: UIViewController {
         
         let descriptionLabel = UILabel()
         descriptionLabel.attributedText = NSAttributedString(
-            string: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Nunc tincidunt ante vitae massa.",
+            string: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Nunc tincidunt ante vitae massa. Ut in tortor nulla. Sed lobortis ornare porta. Ut dapibus semper nisl, quis imperdiet massa efficitur nec. Donec magna lorem, interdum nec dui in, posuere dapibus ex. Etiam porttitor sem a venenatis ornare. Duis sodales ipsum eget vestibulum auctor. Sed pellentesque sed ipsum ac consequat. Donec quis vehicula nunc.",
             attributes: [.paragraphStyle: descriptionParagraphStyle]
         )
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .systemFont(ofSize: 16)
-        view.addSubview(descriptionLabel)
+        contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 16),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
         self.descriptionLabel = descriptionLabel
         
@@ -115,12 +136,13 @@ final class ProfileViewController: UIViewController {
         
         let verticalStackView = UIStackView(arrangedSubviews: [horizontalStackView1, horizontalStackView2])
         verticalStackView.axis = .vertical
-        view.addSubview(verticalStackView)
+        contentView.addSubview(verticalStackView)
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
-            verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])   
     }
     
