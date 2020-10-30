@@ -80,6 +80,7 @@ branch: `06-scrollViews`
 - reusable scrolling views pomocí `UITableView`
 - multicolumn layout pomocí `UICollectionView`
 - plnění dat do `UITableView` pomocí `UITableViewDiffableDataSource` (analogicky pro `UICollectionView`)
-- plnění dat do `UICollectionView` pomocí `UITableViewDiffableDataSource` (analogicky pro `UICollectionView`)
+- plnění dat do `UICollectionView` pomocí `UICollectionViewDataSource` (analogicky pro `UITableView`)
+    - `collectionView.reloadData()` pro vyžádání reloadu z data source 
 - konfigurace buněk `UITableView` pomocí subclass `UITableViewCell` (analogicky pro `UICollectionView`)
 - konfigurace buněk `UICollectionView` pomocí subclass `UIContentConfiguration` (analogicky pro `UITableView`)
