@@ -20,7 +20,7 @@
 		A37C707B254C624E000C6394 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C707A254C624E000C6394 /* TextCell.swift */; };
 		A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */; };
 		A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */; };
-		A3EF6BCF2546CC4B0060602F /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */; };
+		A3EF6BCF2546CC4B0060602F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +39,7 @@
 		A37C707A254C624E000C6394 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
+		A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				699686152549C763004583DD /* Feed */,
+				A37C7079254C6239000C6394 /* Profile */,
+				A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */,
+				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
 				69E1DD832525EBE500904133 /* SceneDelegate.swift */,
-				A37C7079254C6239000C6394 /* Profile */,
-				A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */,
-				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
 				69E1DD872525EBE500904133 /* Main.storyboard */,
 				69E1DD8A2525EBE500904133 /* Assets.xcassets */,
 				69E1DD8C2525EBE500904133 /* LaunchScreen.storyboard */,
@@ -179,7 +179,7 @@
 			files = (
 				69E1DD862525EBE500904133 /* FeedViewController.swift in Sources */,
 				691515102549EB7000F377FA /* ImageCell.swift in Sources */,
-				A3EF6BCF2546CC4B0060602F /* AddPhotoViewController.swift in Sources */,
+				A3EF6BCF2546CC4B0060602F /* CreateViewController.swift in Sources */,
 				A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */,
 				69E1DD822525EBE500904133 /* AppDelegate.swift in Sources */,
 				69E1DD842525EBE500904133 /* SceneDelegate.swift in Sources */,

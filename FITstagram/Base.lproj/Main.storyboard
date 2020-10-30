@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,22 +12,22 @@
             <objects>
                 <viewController storyboardIdentifier="FeedViewController" id="3e7-te-euu" customClass="FeedViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gEU-rz-TlT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uTt-g6-BFO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" id="HZT-Tb-IME" customClass="PostCell" customModule="FITstagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="382.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="382.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HZT-Tb-IME" id="bdb-Jc-7T3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="382.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="382.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8DM-lm-XpD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-p4-f56">
                                                             <rect key="frame" x="0.0" y="0.0" width="38" height="48"/>
@@ -39,14 +38,14 @@
                                                             </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="R9z-BZ-YMM" customClass="PhotoHeader" customModule="FITstagram" customModuleProvider="target">
-                                                            <rect key="frame" x="64" y="4" width="286" height="40"/>
+                                                            <rect key="frame" x="64" y="4" width="472" height="40"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="93P-Zv-6GW"/>
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feF-yJ-IhI">
-                                                            <rect key="frame" x="350" y="0.0" width="64" height="48"/>
+                                                            <rect key="frame" x="536" y="0.0" width="64" height="48"/>
                                                             <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                                             <state key="normal" title="Follow"/>
                                                             <state key="selected" title="Unfollow"/>
@@ -72,20 +71,20 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICo-Cm-TeI">
-                                                    <rect key="frame" x="0.0" y="52" width="414" height="229"/>
+                                                    <rect key="frame" x="0.0" y="52" width="600" height="229"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="229" id="JbU-Ak-dNg"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qru-ex-yxB" customClass="LikeButton" customModule="FITstagram" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="289" width="46" height="30.5"/>
+                                                    <rect key="frame" x="16" y="289" width="232" height="30.5"/>
                                                     <state key="normal" title="Like"/>
                                                     <connections>
                                                         <action selector="likeButtonTapped:" destination="HZT-Tb-IME" eventType="touchUpInside" id="sOW-34-tq5"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nejakej opravdu dlouhej text na nekolik radek, tohle si myslim, ze nebude dostatecne dlouhy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0h-qr-YdW">
-                                                    <rect key="frame" x="16" y="325.5" width="378" height="41"/>
+                                                    <rect key="frame" x="16" y="325.5" width="564" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -152,16 +151,16 @@
             </objects>
             <point key="canvasLocation" x="172" y="-137"/>
         </scene>
-        <!--Add Photo View Controller-->
+        <!--Create View Controller-->
         <scene sceneID="DaH-S9-u5T">
             <objects>
-                <viewController storyboardIdentifier="AddPhotoViewController" id="img-sG-4xd" customClass="AddPhotoViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPhotoViewController" id="img-sG-4xd" customClass="CreateViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xEU-6x-7Uo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhf-oI-ch3">
-                                <rect key="frame" x="16" y="108" width="382" height="94"/>
+                                <rect key="frame" x="16" y="64" width="568" height="94"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="mE1-Om-g1R"/>
@@ -172,27 +171,27 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aru-sx-EW8">
-                                <rect key="frame" x="16" y="224" width="87" height="21"/>
+                                <rect key="frame" x="16" y="180" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Ga-Vns">
-                                <rect key="frame" x="378" y="222" width="20" height="22"/>
+                                <rect key="frame" x="564" y="178" width="20" height="22"/>
                                 <state key="normal" image="location.fill" catalog="system"/>
                                 <connections>
                                     <action selector="locationTapped" destination="img-sG-4xd" eventType="touchUpInside" id="ekY-6N-Lbx"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMI-gr-s1V">
-                                <rect key="frame" x="16" y="268" width="382" height="382"/>
+                                <rect key="frame" x="16" y="224" width="568" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XMI-gr-s1V" secondAttribute="height" multiplier="1:1" id="EuK-hH-dzA"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMy-rl-jMm">
-                                <rect key="frame" x="163.5" y="444" width="87" height="30"/>
+                                <rect key="frame" x="256.5" y="493" width="87" height="30"/>
                                 <state key="normal" title="Select photo"/>
                                 <connections>
                                     <action selector="selectPhotoTapped" destination="img-sG-4xd" eventType="touchUpInside" id="gdW-Tn-1Sc"/>

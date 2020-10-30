@@ -1,5 +1,5 @@
 //
-//  AddPhotoViewController.swift
+//  CreateViewController.swift
 //  FITstagram
 //
 //  Created by Lukáš Hromadník on 26/10/2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AddPhotoViewController: UIViewController {
+final class CreateViewController: UIViewController {
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var selectPhotoButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -30,7 +30,7 @@ final class AddPhotoViewController: UIViewController {
     }
     
     @IBAction func cancelTapped() {
-        print("cancel tapped")
+        dismiss(animated: true)
     }
     
     @IBAction func createTapped() {
@@ -50,7 +50,7 @@ final class AddPhotoViewController: UIViewController {
     }
 }
 
-extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }

@@ -48,7 +48,6 @@ class FeedViewController: UIViewController {
     private func personTapped(in post: Post) {
         let controller = DummyViewController(color: .red)
         controller.title = post.author
-//        present(controller, animated: true)
 
         navigationController?.pushViewController(controller, animated: true)
     }
