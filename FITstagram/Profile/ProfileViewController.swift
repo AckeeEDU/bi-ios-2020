@@ -61,25 +61,21 @@ final class ProfileViewController: UIViewController {
         let usernameLabel = UILabel()
         usernameLabel.text = username
         usernameLabel.font = .systemFont(ofSize: 36)
-        view.addSubview(usernameLabel)
-        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            usernameLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor),
-            usernameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 16)
-        ])
-        self.usernameLabel = usernameLabel
         
         let editUsernameButton = UIButton(type: .system)
         editUsernameButton.setImage(UIImage(systemName: "pencil"), for: .normal)
         editUsernameButton.setContentCompressionResistancePriority(.required, for: .horizontal)
-        view.addSubview(editUsernameButton)
-        editUsernameButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            editUsernameButton.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor),
-            editUsernameButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            editUsernameButton.leadingAnchor.constraint(greaterThanOrEqualTo: usernameLabel.trailingAnchor, constant: 16)
-        ])
         self.editUsernameButton = editUsernameButton
+        
+        let usernameStackView = UIStackView(arrangedSubviews: [usernameLabel, editUsernameButton])
+        usernameStackView.spacing = 8
+        view.addSubview(usernameStackView)
+        usernameStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            usernameStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor),
+            usernameStackView.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 16),
+            usernameStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+        ])
         
         let postsLabel = UILabel()
         postsLabel.text = "posts: 154"
