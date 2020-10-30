@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -27,17 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.tabBarItem.title = "Feed"
         navigationController.tabBarItem.image = UIImage(systemName: "list.bullet")
         
-        let searchVC = SearchViewController()
-        let searchNav = UINavigationController(rootViewController: searchVC)
-        searchVC.title = "Search"
-        searchNav.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        
         let profileController = ProfileViewController(nibName: nil, bundle: nil)
         profileController.tabBarItem.title = "Profile"
         profileController.tabBarItem.image = UIImage(systemName: "person")
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [navigationController, searchNav, profileController]
+        tabBarController.viewControllers = [navigationController, profileController]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
@@ -70,7 +64,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-

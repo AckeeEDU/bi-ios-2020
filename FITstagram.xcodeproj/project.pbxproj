@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		691515102549EB7000F377FA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915150F2549EB7000F377FA /* ImageCell.swift */; };
 		699686182549C76C004583DD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699686172549C76C004583DD /* PostCell.swift */; };
-		6996861D2549E661004583DD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996861C2549E661004583DD /* SearchViewController.swift */; };
 		69E1DD822525EBE500904133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD812525EBE500904133 /* AppDelegate.swift */; };
 		69E1DD842525EBE500904133 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD832525EBE500904133 /* SceneDelegate.swift */; };
 		69E1DD862525EBE500904133 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD852525EBE500904133 /* FeedViewController.swift */; };
@@ -18,6 +17,7 @@
 		69E1DD8E2525EBE500904133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E1DD8C2525EBE500904133 /* LaunchScreen.storyboard */; };
 		69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD962525F72A00904133 /* PhotoHeader.swift */; };
 		69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E1DD992525FADD00904133 /* LikeButton.swift */; };
+		A37C707B254C624E000C6394 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C707A254C624E000C6394 /* TextCell.swift */; };
 		A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */; };
 		A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */; };
 		A3EF6BCF2546CC4B0060602F /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */; };
@@ -26,7 +26,6 @@
 /* Begin PBXFileReference section */
 		6915150F2549EB7000F377FA /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		699686172549C76C004583DD /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		6996861C2549E661004583DD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		69E1DD7E2525EBE500904133 /* FITstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E1DD812525EBE500904133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69E1DD832525EBE500904133 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		69E1DD8F2525EBE500904133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1DD962525F72A00904133 /* PhotoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeader.swift; sourceTree = "<group>"; };
 		69E1DD992525FADD00904133 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		A37C707A254C624E000C6394 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
@@ -64,15 +64,6 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		6996861B2549E651004583DD /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				6996861C2549E661004583DD /* SearchViewController.swift */,
-				6915150F2549EB7000F377FA /* ImageCell.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		69E1DD752525EBE500904133 = {
 			isa = PBXGroup;
 			children = (
@@ -93,10 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				699686152549C763004583DD /* Feed */,
-				6996861B2549E651004583DD /* Search */,
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
 				69E1DD832525EBE500904133 /* SceneDelegate.swift */,
-				A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */,
+				A37C7079254C6239000C6394 /* Profile */,
 				A3EF6BCE2546CC4B0060602F /* AddPhotoViewController.swift */,
 				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
 				69E1DD872525EBE500904133 /* Main.storyboard */,
@@ -105,6 +95,16 @@
 				69E1DD8F2525EBE500904133 /* Info.plist */,
 			);
 			path = FITstagram;
+			sourceTree = "<group>";
+		};
+		A37C7079254C6239000C6394 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */,
+				A37C707A254C624E000C6394 /* TextCell.swift */,
+				6915150F2549EB7000F377FA /* ImageCell.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +177,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6996861D2549E661004583DD /* SearchViewController.swift in Sources */,
 				69E1DD862525EBE500904133 /* FeedViewController.swift in Sources */,
 				691515102549EB7000F377FA /* ImageCell.swift in Sources */,
 				A3EF6BCF2546CC4B0060602F /* AddPhotoViewController.swift in Sources */,
@@ -187,6 +186,7 @@
 				A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */,
 				69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */,
 				69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */,
+				A37C707B254C624E000C6394 /* TextCell.swift in Sources */,
 				699686182549C76C004583DD /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
