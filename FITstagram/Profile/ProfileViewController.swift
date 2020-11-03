@@ -61,6 +61,7 @@ final class ProfileViewController: UIViewController {
         let usernameLabel = UILabel()
         usernameLabel.text = username
         usernameLabel.font = .systemFont(ofSize: 36)
+        self.usernameLabel = usernameLabel
         
         let editUsernameButton = UIButton(type: .system)
         editUsernameButton.setImage(UIImage(systemName: "pencil"), for: .normal)
