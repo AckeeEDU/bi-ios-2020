@@ -60,7 +60,7 @@ class FeedViewController: UIViewController {
     
     private func personTapped(in post: Post) {
         let controller = DummyViewController(color: .red)
-        controller.title = post.username
+        controller.title = post.author
 
         navigationController?.pushViewController(controller, animated: true)
     }
@@ -108,6 +108,6 @@ extension FeedViewController: UITableViewDelegate {
         
         guard let post = dataSource.itemIdentifier(for: indexPath) else { return }
         
-        print("[POST_SELECTED]", post.username)
+        print("[POST_SELECTED]", post.author)
     }
 }

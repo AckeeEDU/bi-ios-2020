@@ -20,7 +20,7 @@ extension PostResponse {
 struct Post: Hashable {
     let id: Int
     let image: UIImage?
-    let username: String
+    let author: String
     let caption: String
     let lat: Double?
     let lon: Double?
@@ -31,7 +31,7 @@ extension Post: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case image
-        case username
+        case author = "username"
         case caption
         case lat
         case lon
@@ -45,7 +45,8 @@ extension Post: Codable {
         let imageString = try container.decode(String.self, forKey: .image)
         let imageData = Data(base64Encoded: imageString) ?? Data()
         image = UIImage(data: imageData)
-        username = try container.decode(String.self, forKey: .username)
+        
+        author = try container.decode(String.self, forKey: .author)
         caption = try container.decode(String.self, forKey: .caption)
         lat = try container.decodeIfPresent(Double.self, forKey: .lat)
         lon = try container.decodeIfPresent(Double.self, forKey: .lon)
@@ -56,7 +57,7 @@ extension Post: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(), forKey: .image)
-        try container.encode(username, forKey: .username)
+        try container.encode(author, forKey: .author)
         try container.encode(caption, forKey: .caption)
         try container.encode(lat, forKey: .lat)
         try container.encode(lon, forKey: .lon)

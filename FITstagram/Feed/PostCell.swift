@@ -19,13 +19,13 @@ class PostCell: UITableViewCell {
     
     var post: Post? {
         didSet {
-            photoHeader.usernameLabel.text = post?.username
+            photoHeader.usernameLabel.text = post?.author
             photoHeader.locationLabel.text = post?.location
             photoImageView.image = post?.image
             descriptionLabel.text = post?.caption
             followButton.isSelected = false
             likes = 0
-            followButton.isHidden = post?.username == UserDefaults.standard.string(forKey: "username")
+            followButton.isHidden = post?.author == UserDefaults.standard.string(forKey: "username")
         }
     }
     
