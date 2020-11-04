@@ -8,7 +8,13 @@
 import UIKit
 
 struct PostResponse: Codable {
-    let records: [Post]
+    let posts: [Post]
+}
+
+extension PostResponse {
+    enum CodingKeys: String, CodingKey {
+        case posts = "records"
+    }
 }
 
 struct Post: Hashable, Codable {

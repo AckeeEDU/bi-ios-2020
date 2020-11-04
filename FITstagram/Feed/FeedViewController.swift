@@ -51,7 +51,7 @@ class FeedViewController: UIViewController {
             guard let data = data else { assertionFailure(); return }
             
             let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
-            self?.posts = decoded.records
+            self?.posts = decoded.posts
         }
         task.resume()
     }

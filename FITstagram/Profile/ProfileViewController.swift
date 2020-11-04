@@ -180,7 +180,7 @@ final class ProfileViewController: UIViewController {
             guard let data = data else { assertionFailure(); return }
             
             let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
-            self.photos = decoded.records
+            self.photos = decoded.posts
         }
         task.resume()
     }
