@@ -7,15 +7,6 @@
 
 import UIKit
 
-struct Post: Hashable {
-    let author: String
-    let isFollowed: Bool
-    let location: String
-    let image: UIImage
-    let likes: Int
-    let description: String
-}
-
 class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
@@ -45,41 +36,33 @@ class FeedViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         
         navigationController?.navigationBar.isTranslucent = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.posts.append(
-                Post(
-                    author: "olejnjak",
-                    isFollowed: false,
-                    location: "Praha",
-                    image: UIImage(named: "image")!,
-                    likes: 87,
-                    description: "Lorem ipsum dolor sit amet"
-                )
-            )
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
-            self?.posts.append(
-                Post(
-                    author: "lukas",
-                    isFollowed: false,
-                    location: "Praha",
-                    image: UIImage(named: "image2")!,
-                    likes: 86,
-                    description: "Lorem ipsum dolor sit amet"
-                )
-            )
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-            self?.posts = []
-        }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts")!
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                print("[ERROR]", error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { assertionFailure(); return }
+            
+            print(String(data: data, encoding: .utf8))
+            
+            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
+            self?.posts = decoded.records
+        }
+        task.resume()
+    }
+    
+    // MARK: - Actions
     
     private func personTapped(in post: Post) {
         let controller = DummyViewController(color: .red)
-        controller.title = post.author
+        controller.title = post.username
 
         navigationController?.pushViewController(controller, animated: true)
     }
@@ -108,6 +91,6 @@ extension FeedViewController: UITableViewDelegate {
         
         guard let post = dataSource.itemIdentifier(for: indexPath) else { return }
         
-        print("[POST_SELECTED]", post.author)
+        print("[POST_SELECTED]", post.username)
     }
 }
