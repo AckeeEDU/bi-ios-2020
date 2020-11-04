@@ -16,8 +16,9 @@ final class ProfileViewController: UIViewController {
     
     private weak var collectionView: UICollectionView!
     
-    var username = "username" {
+    var username = UserDefaults.standard.string(forKey: "username") ?? "username" {
         didSet {
+            UserDefaults.standard.setValue(username, forKey: "username")
             usernameLabel.text = username
             fetchPhotos()
         }

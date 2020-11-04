@@ -37,13 +37,15 @@ final class CreateViewController: UIViewController {
         print(textView.text ?? "")
         view.endEditing(true)
         
+        let username = UserDefaults.standard.string(forKey: "username") ?? "username"
+        
         var urlRequest = URLRequest(url: URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts")!)
         urlRequest.allHTTPHeaderFields = ["Content-Type": "application/json"]
         urlRequest.httpMethod = "POST"
         
         let body: [String: Any?] = [
             "image": image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(),
-            "username": "olejnjak",
+            "username": username,
             "caption": textView.text ?? "",
             "lat": nil,
             "lon": nil,
