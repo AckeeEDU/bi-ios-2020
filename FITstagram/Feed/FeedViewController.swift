@@ -21,6 +21,12 @@ class FeedViewController: UIViewController {
     
     private var dataSource: UITableViewDiffableDataSource<Int, Post>!
     
+    private var posts: [Post] = [] {
+        didSet {
+            applySnapshot()
+        }
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -34,15 +40,41 @@ class FeedViewController: UIViewController {
             cell.personTapped = { [weak self] in self?.personTapped(in: post) }
             return cell
         }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.addData()
-        }
     
         navigationItem.title = "Feed"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         
         navigationController?.navigationBar.isTranslucent = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.posts.append(
+                Post(
+                    author: "olejnjak",
+                    isFollowed: false,
+                    location: "Praha",
+                    image: UIImage(named: "image")!,
+                    likes: 87,
+                    description: "Lorem ipsum dolor sit amet"
+                )
+            )
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+            self?.posts.append(
+                Post(
+                    author: "lukas",
+                    isFollowed: false,
+                    location: "Praha",
+                    image: UIImage(named: "image2")!,
+                    likes: 86,
+                    description: "Lorem ipsum dolor sit amet"
+                )
+            )
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.posts = []
+        }
     }
     
     private func personTapped(in post: Post) {
@@ -59,18 +91,11 @@ class FeedViewController: UIViewController {
     }
     
     // MARK: - Private helpers
-    
-    private func addData() {
-        let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor augue, efficitur sed venenatis non, tristique vitae risus. Proin mattis pretium pellentesque. Pellentesque malesuada nisi eleifend magna condimentum, id dignissim metus aliquet. Quisque turpis dolor, condimentum ut malesuada non, finibus a mi. Cras pulvinar laoreet accumsan. Quisque in porttitor neque. Vestibulum in risus id lectus semper porttitor. Sed non velit aliquam sem tempor dictum. Aliquam euismod dui magna, in pellentesque lectus lobortis id. Praesent nibh mi, ultricies at justo sed, aliquet facilisis felis. Quisque finibus euismod bibendum. Etiam quam nibh, tincidunt eu gravida vel, aliquam aliquet dui. Integer pretium ipsum non dui tempor molestie. Morbi non ipsum tempus, pulvinar arcu id, tristique mi. Nullam eget elit tempus, mattis leo sed, lobortis diam. Etiam ac sem et elit consectetur pretium."
-        
+
+    private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Post>()
         snapshot.appendSections([0])
-        snapshot.appendItems([
-            Post(author: "olejnjak", isFollowed: false, location: "Praha", image: UIImage(named: "image")!, likes: 87, description: description),
-            Post(author: "lukas", isFollowed: false, location: "Praha", image: UIImage(named: "image2")!, likes: 86, description: description),
-            Post(author: "honza", isFollowed: false, location: "Praha", image: UIImage(named: "image3")!, likes: 85, description: description),
-            Post(author: "marek", isFollowed: false, location: "Praha", image: UIImage(named: "image4")!, likes: 84, description: description),
-        ])
+        snapshot.appendItems(posts)
         dataSource.apply(snapshot)
     }
 }
