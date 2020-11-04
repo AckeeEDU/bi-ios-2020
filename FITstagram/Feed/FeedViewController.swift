@@ -50,8 +50,6 @@ class FeedViewController: UIViewController {
             
             guard let data = data else { assertionFailure(); return }
             
-            print(String(data: data, encoding: .utf8))
-            
             let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
             self?.posts = decoded.records
         }

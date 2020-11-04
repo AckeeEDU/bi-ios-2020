@@ -16,20 +16,22 @@ final class ProfileViewController: UIViewController {
     
     private weak var collectionView: UICollectionView!
     
-    var username: String? = "username" {
+    var username = "username" {
         didSet {
             usernameLabel.text = username
+            fetchPhotos()
         }
     }
     
     var descriptionText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Nunc tincidunt ante vitae massa. Ut in tortor nulla. Sed lobortis ornare porta. Ut dapibus semper nisl, quis imperdiet massa efficitur nec. Donec magna lorem, interdum nec dui in, posuere dapibus ex. Etiam porttitor sem a venenatis ornare. Duis sodales ipsum eget vestibulum auctor. Sed pellentesque sed ipsum ac consequat. Donec quis vehicula nunc."
     
-    private var photos = [
-        UIImage(named: "image")!,
-        UIImage(named: "image2")!,
-        UIImage(named: "image3")!,
-        UIImage(named: "image4")!,
-    ]
+    private var photos: [Post] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.updateData()
+            }
+        }
+    }
     
     private var textRegistration: UICollectionView.CellRegistration<UICollectionViewCell, String>!
     private var imageRegistration: UICollectionView.CellRegistration<UICollectionViewCell, UIImage>!
@@ -79,7 +81,6 @@ final class ProfileViewController: UIViewController {
         ])
         
         let postsLabel = UILabel()
-        postsLabel.text = "posts: 154"
         postsLabel.font = .systemFont(ofSize: 16)
         view.addSubview(postsLabel)
         postsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +105,8 @@ final class ProfileViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         self.collectionView = collectionView
+        
+        updateData()
     }
     
     override func viewDidLoad() {
@@ -131,11 +134,17 @@ final class ProfileViewController: UIViewController {
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                self?.username = alert.textFields?.first?.text
+                self?.username = alert.textFields?.first?.text ?? ""
             })
             self?.present(alert, animated: true)
         }
         editUsernameButton.addAction(editUsernameAction, for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchPhotos()
     }
     
     // MARK: - Helpers
@@ -154,6 +163,27 @@ final class ProfileViewController: UIViewController {
         
         return thumbnailImageView
     }
+    
+    private func updateData() {
+        postsLabel.text = "posts: \(photos.count)"
+        collectionView.reloadData()
+    }
+    
+    private func fetchPhotos() {
+        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts?filter=username,eq,\(username)")!
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("[ERROR]", error)
+                return
+            }
+            
+            guard let data = data else { assertionFailure(); return }
+            
+            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
+            self.photos = decoded.records
+        }
+        task.resume()
+    }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
@@ -162,14 +192,14 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        section == 0 ? 1 : photos.count * 5
+        section == 0 ? 1 : photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             return collectionView.dequeueConfiguredReusableCell(using: textRegistration, for: indexPath, item: descriptionText)
         } else {
-            return collectionView.dequeueConfiguredReusableCell(using: imageRegistration, for: indexPath, item: photos[indexPath.item % photos.count])
+            return collectionView.dequeueConfiguredReusableCell(using: imageRegistration, for: indexPath, item: photos[indexPath.item].icon)
         }
     }
 }

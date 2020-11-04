@@ -36,6 +36,32 @@ final class CreateViewController: UIViewController {
     @IBAction func createTapped() {
         print(textView.text ?? "")
         view.endEditing(true)
+        
+        var urlRequest = URLRequest(url: URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts")!)
+        urlRequest.allHTTPHeaderFields = ["Content-Type": "application/json"]
+        urlRequest.httpMethod = "POST"
+        
+        let body: [String: Any?] = [
+            "image": image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(),
+            "username": "olejnjak",
+            "caption": textView.text ?? "",
+            "lat": nil,
+            "lon": nil,
+            "location": nil
+        ]
+        urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: body)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if let error = error {
+                print("[ERROR]", error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { assertionFailure(); return }
+            
+            print(String(data: data, encoding: .utf8)!)
+        }
+        task.resume()
     }
     
     @IBAction func selectPhotoTapped() {

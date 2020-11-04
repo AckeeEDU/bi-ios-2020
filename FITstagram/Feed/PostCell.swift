@@ -22,7 +22,8 @@ class PostCell: UITableViewCell {
             photoHeader.usernameLabel.text = post?.username
             photoHeader.locationLabel.text = post?.location
 //            photoImageView.image = post?.image
-            photoImageView.image = UIImage(named: "image")!
+//            photoImageView.image = //UIImage(named: "image")!
+            photoImageView.image = post?.icon
             descriptionLabel.text = post?.caption
 //            followButton.isSelected = post?.isFollowed ?? false
             followButton.isSelected = false

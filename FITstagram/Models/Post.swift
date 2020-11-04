@@ -5,7 +5,7 @@
 //  Created by Lukáš Hromadník on 04/11/2020.
 //
 
-import Foundation
+import UIKit
 
 struct PostResponse: Codable {
     let records: [Post]
@@ -19,4 +19,11 @@ struct Post: Hashable, Codable {
     let lat: Double?
     let lon: Double?
     let location: String?
+}
+
+extension Post {
+    var icon: UIImage? {
+        guard let data = Data(base64Encoded: image) else { return nil }
+        return UIImage(data: data)
+    }
 }
