@@ -21,13 +21,9 @@ class PostCell: UITableViewCell {
         didSet {
             photoHeader.usernameLabel.text = post?.username
             photoHeader.locationLabel.text = post?.location
-//            photoImageView.image = post?.image
-//            photoImageView.image = //UIImage(named: "image")!
-            photoImageView.image = post?.icon
+            photoImageView.image = post?.image
             descriptionLabel.text = post?.caption
-//            followButton.isSelected = post?.isFollowed ?? false
             followButton.isSelected = false
-//            likes = post?.likes ?? 0
             likes = 0
         }
     }

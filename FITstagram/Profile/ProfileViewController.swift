@@ -199,7 +199,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             return collectionView.dequeueConfiguredReusableCell(using: textRegistration, for: indexPath, item: descriptionText)
         } else {
-            return collectionView.dequeueConfiguredReusableCell(using: imageRegistration, for: indexPath, item: photos[indexPath.item].icon)
+            return collectionView.dequeueConfiguredReusableCell(using: imageRegistration, for: indexPath, item: photos[indexPath.item].image)
         }
     }
 }

@@ -17,9 +17,9 @@ extension PostResponse {
     }
 }
 
-struct Post: Hashable, Codable {
+struct Post: Hashable {
     let id: Int
-    let image: String
+    let image: UIImage?
     let username: String
     let caption: String
     let lat: Double?
@@ -27,9 +27,39 @@ struct Post: Hashable, Codable {
     let location: String?
 }
 
-extension Post {
-    var icon: UIImage? {
-        guard let data = Data(base64Encoded: image) else { return nil }
-        return UIImage(data: data)
+extension Post: Codable {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case image
+        case username
+        case caption
+        case lat
+        case lon
+        case location
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(Int.self, forKey: .id)
+        
+        let imageString = try container.decode(String.self, forKey: .image)
+        let imageData = Data(base64Encoded: imageString) ?? Data()
+        image = UIImage(data: imageData)
+        username = try container.decode(String.self, forKey: .username)
+        caption = try container.decode(String.self, forKey: .caption)
+        lat = try container.decodeIfPresent(Double.self, forKey: .lat)
+        lon = try container.decodeIfPresent(Double.self, forKey: .lon)
+        location = try container.decodeIfPresent(String.self, forKey: .location)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(), forKey: .image)
+        try container.encode(username, forKey: .username)
+        try container.encode(caption, forKey: .caption)
+        try container.encode(lat, forKey: .lat)
+        try container.encode(lon, forKey: .lon)
+        try container.encode(location, forKey: .location)
     }
 }
