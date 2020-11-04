@@ -9,6 +9,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    private weak var refreshControl: UIRefreshControl!
     
     private var dataSource: UITableViewDiffableDataSource<Int, Post>!
     
@@ -19,6 +20,17 @@ class FeedViewController: UIViewController {
     }
     
     // MARK: - Lifecycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        let refreshAction = UIAction { [weak self] _ in
+            self?.loadPhotos()
+        }
+        let refreshControl = UIRefreshControl(frame: .zero, primaryAction: refreshAction)
+        tableView.refreshControl = refreshControl
+        self.refreshControl = refreshControl
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +53,7 @@ class FeedViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts")!
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let error = error {
-                print("[ERROR]", error.localizedDescription)
-                return
-            }
-            
-            guard let data = data else { assertionFailure(); return }
-            
-            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
-            self?.posts = decoded.posts
-        }
-        task.resume()
+        loadPhotos()
     }
     
     // MARK: - Actions
@@ -74,10 +74,29 @@ class FeedViewController: UIViewController {
     // MARK: - Private helpers
 
     private func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Post>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(posts)
-        dataSource.apply(snapshot)
+        DispatchQueue.main.async {
+            var snapshot = NSDiffableDataSourceSnapshot<Int, Post>()
+            snapshot.appendSections([0])
+            snapshot.appendItems(self.posts)
+            self.dataSource.apply(snapshot)
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    private func loadPhotos() {
+        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts?order=id,desc")!
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                print("[ERROR]", error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { assertionFailure(); return }
+            
+            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
+            self?.posts = decoded.posts
+        }
+        task.resume()
     }
 }
 

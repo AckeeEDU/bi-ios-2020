@@ -25,6 +25,7 @@ class PostCell: UITableViewCell {
             descriptionLabel.text = post?.caption
             followButton.isSelected = false
             likes = 0
+            followButton.isHidden = post?.username == UserDefaults.standard.string(forKey: "username")
         }
     }
     

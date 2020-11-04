@@ -53,7 +53,7 @@ final class CreateViewController: UIViewController {
         ]
         urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: body)
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
             if let error = error {
                 print("[ERROR]", error.localizedDescription)
                 return
@@ -62,6 +62,9 @@ final class CreateViewController: UIViewController {
             guard let data = data else { assertionFailure(); return }
             
             print(String(data: data, encoding: .utf8)!)
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true)
+            }
         }
         task.resume()
     }
