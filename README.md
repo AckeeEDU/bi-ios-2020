@@ -84,3 +84,17 @@ branch: `06-scrollViews`
     - `collectionView.reloadData()` pro vyžádání reloadu z data source 
 - konfigurace buněk `UITableView` pomocí subclass `UITableViewCell` (analogicky pro `UICollectionView`)
 - konfigurace buněk `UICollectionView` pomocí subclass `UIContentConfiguration` (analogicky pro `UITableView`)
+
+## 7. Networking
+
+branch: `07-networking`
+
+- network requesty
+    - `GET`, `POST` požadavky
+    - hlavičky requestů (např. `Content-Type`)
+    - základní specifikace klient-server komunikace pomocí `JSON`
+- vytvoření požadavku přes `URL` a `URLRequest`
+- mapování pomocí `Codable`
+    - mapovací klíče `CodingKeys`
+    - vlastní mapování pomocí `init(from decoder: Decoder) throws`
+- persistence dat přes `UserDefaults`
