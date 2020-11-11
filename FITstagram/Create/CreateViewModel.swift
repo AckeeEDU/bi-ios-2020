@@ -32,11 +32,11 @@ final class CreateViewModel: CreateViewModeling {
         UserDefaults.standard.string(forKey: "username") ?? "username"
     }
     
-    private let networkService: NetworkService
+    private let networkService: NetworkServicing
     
     // MARK: - Initialization
     
-    init(networkService: NetworkService = NetworkService()) {
+    init(networkService: NetworkServicing = NetworkService()) {
         self.networkService = networkService
     }
     

@@ -7,7 +7,12 @@
 
 import UIKit
 
-struct NetworkService {
+protocol NetworkServicing {
+    func fetch(url: String, completion: @escaping (Result<Data, Error>) -> Void)
+    func fetch(urlRequest: URLRequest, completion: @escaping (Result<Data, Error>) -> Void)
+}
+
+struct NetworkService: NetworkServicing {
     func fetch(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
         let urlRequest = URLRequest(url: URL(string: url)!)
         fetch(urlRequest: urlRequest, completion: completion)

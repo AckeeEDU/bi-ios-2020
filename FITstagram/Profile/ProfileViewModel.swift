@@ -39,11 +39,11 @@ final class ProfileViewModel: ProfileViewModeling {
     
     var viewModelDidChange: (ProfileViewModeling) -> Void = { _ in }
     
-    private let networkService: NetworkService
+    private let networkService: NetworkServicing
     
     // MARK: - Initialization
     
-    init(networkService: NetworkService = NetworkService()) {
+    init(networkService: NetworkServicing = NetworkService()) {
         self.networkService = networkService
     }
     

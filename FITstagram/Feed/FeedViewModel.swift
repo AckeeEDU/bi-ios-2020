@@ -26,11 +26,11 @@ final class FeedViewModel: FeedViewModeling {
     
     var viewModelDidChange: (FeedViewModeling) -> Void = { _ in }
     
-    private let networkService: NetworkService
+    private let networkService: NetworkServicing
     
     // MARK: - Initialization
     
-    init(networkService: NetworkService = NetworkService()) {
+    init(networkService: NetworkServicing = NetworkService()) {
         self.networkService = networkService
     }
     
