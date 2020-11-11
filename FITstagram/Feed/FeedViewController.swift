@@ -12,11 +12,11 @@ class FeedViewController: UIViewController {
     private weak var refreshControl: UIRefreshControl!
     
     private var dataSource: UITableViewDiffableDataSource<Int, Post>!
-    private let viewModel: FeedViewModel
+    private let viewModel: FeedViewModeling
     
     // MARK: - Initialization
     
-    init?(coder: NSCoder, viewModel: FeedViewModel) {
+    init?(coder: NSCoder, viewModel: FeedViewModeling) {
         self.viewModel = viewModel
         super.init(coder: coder)
     }

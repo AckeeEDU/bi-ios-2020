@@ -7,7 +7,14 @@
 
 import Foundation
 
-final class FeedViewModel {
+protocol FeedViewModeling: AnyObject {
+    var posts: [Post] { get set }
+    var viewModelDidChange: (FeedViewModeling) -> Void { get set }
+    
+    func loadPhotos()
+}
+
+final class FeedViewModel: FeedViewModeling {
     var posts: [Post] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -17,7 +24,7 @@ final class FeedViewModel {
         }
     }
     
-    var viewModelDidChange: (FeedViewModel) -> Void = { _ in }
+    var viewModelDidChange: (FeedViewModeling) -> Void = { _ in }
     
     private let networkService: NetworkService
     

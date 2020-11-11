@@ -14,11 +14,11 @@ final class CreateViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    private let viewModel: CreateViewModel
+    private let viewModel: CreateViewModeling
     
     // MARK: - Initialization
     
-    init?(coder: NSCoder, viewModel: CreateViewModel) {
+    init?(coder: NSCoder, viewModel: CreateViewModeling) {
         self.viewModel = viewModel
         super.init(coder: coder)
     }

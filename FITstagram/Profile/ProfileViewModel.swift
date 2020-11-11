@@ -7,7 +7,15 @@
 
 import Foundation
 
-final class ProfileViewModel {
+protocol ProfileViewModeling: AnyObject {
+    var username: String { get set }
+    var photos: [Post] { get set }
+    var viewModelDidChange: (ProfileViewModeling) -> Void { get set }
+    
+    func fetchPhotos()
+}
+
+final class ProfileViewModel: ProfileViewModeling {
     var username: String {
         get { UserDefaults.standard.string(forKey: "username") ?? "username" }
         set {
@@ -29,7 +37,7 @@ final class ProfileViewModel {
         }
     }
     
-    var viewModelDidChange: (ProfileViewModel) -> Void = { _ in }
+    var viewModelDidChange: (ProfileViewModeling) -> Void = { _ in }
     
     private let networkService: NetworkService
     

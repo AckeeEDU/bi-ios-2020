@@ -7,7 +7,15 @@
 
 import UIKit
 
-final class CreateViewModel {
+protocol CreateViewModeling: AnyObject {
+    var caption: String { get set }
+    var image: UIImage? { get set }
+    var viewModelDidChange: (CreateViewModeling) -> Void { get set }
+    
+    func createPost(completion: @escaping (Bool) -> Void)
+}
+
+final class CreateViewModel: CreateViewModeling {
     var caption = ""
     var image: UIImage? {
         didSet {
@@ -17,11 +25,12 @@ final class CreateViewModel {
             }
         }
     }
-    var username: String {
+    
+    var viewModelDidChange: (CreateViewModeling) -> Void = { _ in }
+    
+    private var username: String {
         UserDefaults.standard.string(forKey: "username") ?? "username"
     }
-    
-    var viewModelDidChange: (CreateViewModel) -> Void = { _ in }
     
     private let networkService: NetworkService
     

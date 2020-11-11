@@ -21,11 +21,11 @@ final class ProfileViewController: UIViewController {
     private var textRegistration: UICollectionView.CellRegistration<UICollectionViewCell, String>!
     private var imageRegistration: UICollectionView.CellRegistration<UICollectionViewCell, UIImage>!
     
-    private let viewModel: ProfileViewModel
+    private let viewModel: ProfileViewModeling
     
     // MARK: - Initialization
     
-    init(viewModel: ProfileViewModel) {
+    init(viewModel: ProfileViewModeling) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
