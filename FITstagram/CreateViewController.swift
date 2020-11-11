@@ -14,12 +14,21 @@ final class CreateViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var image: UIImage? {
-        didSet {
-            selectPhotoButton.isHidden = image != nil
-            imageView.image = image
-        }
+    let viewModel: CreateViewModel
+    
+    // MARK: - Initialization
+    
+    init?(coder: NSCoder, viewModel: CreateViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
     }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
     
     override func loadView() {
         super.loadView()
@@ -29,6 +38,19 @@ final class CreateViewController: UIViewController {
         imageView.layer.borderColor = UIColor.darkGray.cgColor
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        textView.delegate = self
+        
+        viewModel.viewModelDidChange = { [weak self] viewModel in
+            self?.selectPhotoButton.isHidden = viewModel.image != nil
+            self?.imageView.image = viewModel.image
+        }
+    }
+    
+    // MARK: - Actions
+    
     @IBAction func cancelTapped() {
         dismiss(animated: true)
     }
@@ -37,36 +59,13 @@ final class CreateViewController: UIViewController {
         print(textView.text ?? "")
         view.endEditing(true)
         
-        let username = UserDefaults.standard.string(forKey: "username") ?? "username"
-        
-        var urlRequest = URLRequest(url: URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts")!)
-        urlRequest.allHTTPHeaderFields = ["Content-Type": "application/json"]
-        urlRequest.httpMethod = "POST"
-        
-        let body: [String: Any?] = [
-            "image": image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(),
-            "username": username,
-            "caption": textView.text ?? "",
-            "lat": nil,
-            "lon": nil,
-            "location": nil
-        ]
-        urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: body)
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
-            if let error = error {
-                print("[ERROR]", error.localizedDescription)
-                return
-            }
-            
-            guard let data = data else { assertionFailure(); return }
-            
-            print(String(data: data, encoding: .utf8)!)
-            DispatchQueue.main.async {
-                self?.dismiss(animated: true)
+        viewModel.createPost { success in
+            if success {
+                DispatchQueue.main.async { [weak self] in
+                    self?.dismiss(animated: true)
+                }
             }
         }
-        task.resume()
     }
     
     @IBAction func selectPhotoTapped() {
@@ -87,7 +86,14 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        image = info[.originalImage] as? UIImage
+        viewModel.image = info[.originalImage] as? UIImage
         picker.dismiss(animated: true)
+    }
+}
+
+extension CreateViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        print(#function, textView.text ?? "")
+        viewModel.caption = textView.text ?? ""
     }
 }

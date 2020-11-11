@@ -136,26 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-659.4202898550725" y="-137.27678571428569"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="kii-Pd-JgQ">
-            <objects>
-                <navigationController storyboardIdentifier="AddPhotoNavigationController" id="eOQ-6z-ufN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jBf-gJ-WLR">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="img-sG-4xd" kind="relationship" relationship="rootViewController" id="F6J-8g-sXM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tWy-0I-eIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="172" y="-137"/>
-        </scene>
         <!--Create View Controller-->
         <scene sceneID="DaH-S9-u5T">
             <objects>
-                <viewController storyboardIdentifier="AddPhotoViewController" id="img-sG-4xd" customClass="CreateViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateViewController" id="img-sG-4xd" customClass="CreateViewController" customModule="FITstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xEU-6x-7Uo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,6 +214,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="imageView" destination="XMI-gr-s1V" id="Fze-xA-K8C"/>
                         <outlet property="locationButton" destination="5y5-Ga-Vns" id="xVS-kt-7iM"/>

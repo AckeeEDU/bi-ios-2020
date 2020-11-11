@@ -12,7 +12,7 @@ class FeedViewController: UIViewController {
     private weak var refreshControl: UIRefreshControl!
     
     private var dataSource: UITableViewDiffableDataSource<Int, Post>!
-    var viewModel: FeedViewModel!
+    let viewModel: FeedViewModel
     
     // MARK: - Initialization
     
@@ -78,8 +78,11 @@ class FeedViewController: UIViewController {
     
     @objc private func addButtonTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "AddPhotoNavigationController")
-        present(controller, animated: true)
+        let controller = storyboard.instantiateViewController(identifier: "CreateViewController") {
+            CreateViewController(coder: $0, viewModel: CreateViewModel())
+        }
+        let navigationController = UINavigationController(rootViewController: controller)
+        present(navigationController, animated: true)
     }
     
     // MARK: - Private helpers
