@@ -16,26 +16,25 @@ final class ProfileViewController: UIViewController {
     
     private weak var collectionView: UICollectionView!
     
-    var username = UserDefaults.standard.string(forKey: "username") ?? "username" {
-        didSet {
-            UserDefaults.standard.setValue(username, forKey: "username")
-            usernameLabel.text = username
-            fetchPhotos()
-        }
-    }
-    
     var descriptionText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Nunc tincidunt ante vitae massa. Ut in tortor nulla. Sed lobortis ornare porta. Ut dapibus semper nisl, quis imperdiet massa efficitur nec. Donec magna lorem, interdum nec dui in, posuere dapibus ex. Etiam porttitor sem a venenatis ornare. Duis sodales ipsum eget vestibulum auctor. Sed pellentesque sed ipsum ac consequat. Donec quis vehicula nunc."
-    
-    private var photos: [Post] = [] {
-        didSet {
-            DispatchQueue.main.async { [weak self] in
-                self?.updateData()
-            }
-        }
-    }
     
     private var textRegistration: UICollectionView.CellRegistration<UICollectionViewCell, String>!
     private var imageRegistration: UICollectionView.CellRegistration<UICollectionViewCell, UIImage>!
+    
+    private let viewModel: ProfileViewModel
+    
+    // MARK: - Initialization
+    
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     
@@ -62,7 +61,7 @@ final class ProfileViewController: UIViewController {
         self.profileImageView = profileImageView
         
         let usernameLabel = UILabel()
-        usernameLabel.text = username
+        usernameLabel.text = viewModel.username
         usernameLabel.font = .systemFont(ofSize: 36)
         self.usernameLabel = usernameLabel
         
@@ -130,22 +129,27 @@ final class ProfileViewController: UIViewController {
                 preferredStyle: .alert
             )
             alert.addTextField { [weak self] textField in
-                textField.text = self?.username
+                textField.text = self?.viewModel.username
                 textField.placeholder = "Username"
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                self?.username = alert.textFields?.first?.text ?? ""
+                self?.viewModel.username = alert.textFields?.first?.text ?? ""
             })
             self?.present(alert, animated: true)
         }
         editUsernameButton.addAction(editUsernameAction, for: .touchUpInside)
+        
+        viewModel.viewModelDidChange = { [weak self] viewModel in
+            self?.usernameLabel.text = viewModel.username
+            self?.updateData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fetchPhotos()
+        viewModel.fetchPhotos()
     }
     
     // MARK: - Helpers
@@ -166,24 +170,8 @@ final class ProfileViewController: UIViewController {
     }
     
     private func updateData() {
-        postsLabel.text = "posts: \(photos.count)"
+        postsLabel.text = "posts: \(viewModel.photos.count)"
         collectionView.reloadData()
-    }
-    
-    private func fetchPhotos() {
-        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts?filter=username,eq,\(username)")!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("[ERROR]", error)
-                return
-            }
-            
-            guard let data = data else { assertionFailure(); return }
-            
-            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
-            self.photos = decoded.posts
-        }
-        task.resume()
     }
 }
 
@@ -193,14 +181,14 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        section == 0 ? 1 : photos.count
+        section == 0 ? 1 : viewModel.photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             return collectionView.dequeueConfiguredReusableCell(using: textRegistration, for: indexPath, item: descriptionText)
         } else {
-            return collectionView.dequeueConfiguredReusableCell(using: imageRegistration, for: indexPath, item: photos[indexPath.item].image)
+            return collectionView.dequeueConfiguredReusableCell(using: imageRegistration, for: indexPath, item: viewModel.photos[indexPath.item].image)
         }
     }
 }

@@ -14,7 +14,7 @@ final class CreateViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    let viewModel: CreateViewModel
+    private let viewModel: CreateViewModel
     
     // MARK: - Initialization
     

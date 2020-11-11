@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.tabBarItem.title = "Feed"
         navigationController.tabBarItem.image = UIImage(systemName: "list.bullet")
         
-        let profileController = ProfileViewController(nibName: nil, bundle: nil)
+        let profileController = ProfileViewController(viewModel: ProfileViewModel())
         profileController.tabBarItem.title = "Profile"
         profileController.tabBarItem.image = UIImage(systemName: "person")
         

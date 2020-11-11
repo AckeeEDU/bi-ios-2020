@@ -12,7 +12,7 @@ class FeedViewController: UIViewController {
     private weak var refreshControl: UIRefreshControl!
     
     private var dataSource: UITableViewDiffableDataSource<Int, Post>!
-    let viewModel: FeedViewModel
+    private let viewModel: FeedViewModel
     
     // MARK: - Initialization
     
