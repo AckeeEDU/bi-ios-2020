@@ -20,6 +20,7 @@
 		A3456E83255BE0C300451B39 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3456E82255BE0C300451B39 /* FeedViewModel.swift */; };
 		A3456E86255BE40600451B39 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3456E85255BE40600451B39 /* CreateViewModel.swift */; };
 		A3456E89255BEFC100451B39 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3456E88255BEFC100451B39 /* ProfileViewModel.swift */; };
+		A3456E8F255BF31A00451B39 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3456E8E255BF31A00451B39 /* NetworkService.swift */; };
 		A37C707B254C624E000C6394 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C707A254C624E000C6394 /* TextCell.swift */; };
 		A3CAB250255291BB0014BAF7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAB24F255291BB0014BAF7 /* Post.swift */; };
 		A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */; };
@@ -43,6 +44,7 @@
 		A3456E82255BE0C300451B39 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		A3456E85255BE40600451B39 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		A3456E88255BEFC100451B39 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A3456E8E255BF31A00451B39 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A37C707A254C624E000C6394 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		A3CAB24F255291BB0014BAF7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				A37C7079254C6239000C6394 /* Profile */,
 				A3456E8C255BEFC800451B39 /* Create */,
 				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
+				A3456E8E255BF31A00451B39 /* NetworkService.swift */,
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
 				69E1DD832525EBE500904133 /* SceneDelegate.swift */,
 				69E1DD872525EBE500904133 /* Main.storyboard */,
@@ -215,6 +218,7 @@
 				69E1DD842525EBE500904133 /* SceneDelegate.swift in Sources */,
 				A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */,
 				A3456E89255BEFC100451B39 /* ProfileViewModel.swift in Sources */,
+				A3456E8F255BF31A00451B39 /* NetworkService.swift in Sources */,
 				69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */,
 				69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */,
 				A37C707B254C624E000C6394 /* TextCell.swift in Sources */,

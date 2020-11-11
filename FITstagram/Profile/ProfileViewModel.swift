@@ -31,19 +31,27 @@ final class ProfileViewModel {
     
     var viewModelDidChange: (ProfileViewModel) -> Void = { _ in }
     
+    private let networkService: NetworkService
+    
+    // MARK: - Initialization
+    
+    init(networkService: NetworkService = NetworkService()) {
+        self.networkService = networkService
+    }
+    
+    // MARK: - Public methods
+    
     func fetchPhotos() {
-        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts?filter=username,eq,\(username)")!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("[ERROR]", error)
-                return
+        let url = "https://ackeeedu.000webhostapp.com/api.php/records/posts?filter=username,eq,\(username)"
+        networkService.fetch(url: url) { [weak self] result in
+            switch result {
+            case let .success(data):
+                let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
+                self?.photos = decoded.posts
+                
+            case .failure:
+                break
             }
-            
-            guard let data = data else { assertionFailure(); return }
-            
-            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
-            self.photos = decoded.posts
         }
-        task.resume()
     }
 }

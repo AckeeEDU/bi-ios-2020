@@ -23,6 +23,16 @@ final class CreateViewModel {
     
     var viewModelDidChange: (CreateViewModel) -> Void = { _ in }
     
+    private let networkService: NetworkService
+    
+    // MARK: - Initialization
+    
+    init(networkService: NetworkService = NetworkService()) {
+        self.networkService = networkService
+    }
+    
+    // MARK: - Public methods
+    
     func createPost(completion: @escaping (Bool) -> Void) {
         var urlRequest = URLRequest(url: URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts")!)
         urlRequest.allHTTPHeaderFields = ["Content-Type": "application/json"]
@@ -38,19 +48,14 @@ final class CreateViewModel {
         ]
         urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: body)
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            if let error = error {
-                print("[ERROR]", error.localizedDescription)
+        networkService.fetch(urlRequest: urlRequest) { result in
+            switch result {
+            case .success:
+                completion(true)
+            
+            case .failure:
                 completion(false)
-                return
             }
-            
-            guard let data = data else { assertionFailure(); return }
-            
-            print(String(data: data, encoding: .utf8)!)
-            
-            completion(true)
         }
-        task.resume()
     }
 }
