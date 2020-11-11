@@ -12,11 +12,18 @@ class FeedViewController: UIViewController {
     private weak var refreshControl: UIRefreshControl!
     
     private var dataSource: UITableViewDiffableDataSource<Int, Post>!
+    var viewModel: FeedViewModel!
     
-    private var posts: [Post] = [] {
-        didSet {
-            applySnapshot()
-        }
+    // MARK: - Initialization
+    
+    init?(coder: NSCoder, viewModel: FeedViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Lifecycle
@@ -25,7 +32,7 @@ class FeedViewController: UIViewController {
         super.loadView()
         
         let refreshAction = UIAction { [weak self] _ in
-            self?.loadPhotos()
+            self?.viewModel.loadPhotos()
         }
         let refreshControl = UIRefreshControl(frame: .zero, primaryAction: refreshAction)
         tableView.refreshControl = refreshControl
@@ -48,12 +55,16 @@ class FeedViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         
         navigationController?.navigationBar.isTranslucent = false
+        
+        viewModel.viewModelDidChange = { [weak self] viewModel in
+            self?.applySnapshot()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        loadPhotos()
+        viewModel.loadPhotos()
     }
     
     // MARK: - Actions
@@ -74,29 +85,11 @@ class FeedViewController: UIViewController {
     // MARK: - Private helpers
 
     private func applySnapshot() {
-        DispatchQueue.main.async {
-            var snapshot = NSDiffableDataSourceSnapshot<Int, Post>()
-            snapshot.appendSections([0])
-            snapshot.appendItems(self.posts)
-            self.dataSource.apply(snapshot)
-            self.refreshControl.endRefreshing()
-        }
-    }
-    
-    private func loadPhotos() {
-        let url = URL(string: "https://ackeeedu.000webhostapp.com/api.php/records/posts?order=id,desc")!
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let error = error {
-                print("[ERROR]", error.localizedDescription)
-                return
-            }
-            
-            guard let data = data else { assertionFailure(); return }
-            
-            let decoded = try! JSONDecoder().decode(PostResponse.self, from: data)
-            self?.posts = decoded.posts
-        }
-        task.resume()
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Post>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(viewModel.posts)
+        dataSource.apply(snapshot)
+        refreshControl.endRefreshing()
     }
 }
 

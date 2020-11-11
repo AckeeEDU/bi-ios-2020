@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "FeedViewController")
+        let controller = storyboard.instantiateViewController(identifier: "FeedViewController") {
+            FeedViewController(coder: $0, viewModel: FeedViewModel())
+        }
         
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.tabBarItem.title = "Feed"
