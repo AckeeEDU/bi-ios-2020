@@ -98,3 +98,13 @@ branch: `07-networking`
     - mapovací klíče `CodingKeys`
     - vlastní mapování pomocí `init(from decoder: Decoder) throws`
 - persistence dat přes `UserDefaults`
+
+## 8. Architecture
+
+branch: `08-architecture`
+
+- rozdíl mezi MVC, MVVM
+- extrakce logiky a dat do ViewModelů
+- integrace ViewModelu do ViewControllerů ve storyboardu / kódu
+- přidání `NetworkService` závislosti
+- pokročilé: skrytí implementace za protokoly pro lepší testování a snížení vazeb mezi prvky
