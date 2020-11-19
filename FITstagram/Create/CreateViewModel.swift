@@ -12,28 +12,38 @@ protocol CreateViewModeling: AnyObject {
     var caption: String { get set }
     var image: UIImage? { get set }
     var locationName: String? { get }
+    var locationImage: UIImage? { get }
+    var locationState: LocationState { get }
     var viewModelDidChange: (CreateViewModeling) -> Void { get set }
     
     func createPost(completion: @escaping (Bool) -> Void)
-    func locationName(from coordinate: CLLocationCoordinate2D)
+    func showLocation(_ coordinate: CLLocationCoordinate2D)
+    func removeUserLocation()
+}
+
+enum LocationState {
+    case shown
+    case notShown
 }
 
 final class CreateViewModel: CreateViewModeling {
     var caption = ""
+    var locationState: LocationState = .notShown
     var image: UIImage? {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.viewModelDidChange(self)
-            }
+            self.viewModelDidChange(self)
         }
     }
     
     var locationName: String? {
         didSet {
-            DispatchQueue.main.async {
-                self.viewModelDidChange(self)
-            }
+            self.viewModelDidChange(self)
+        }
+    }
+    
+    var locationImage: UIImage? = UIImage(systemName: "location.fill") {
+        didSet {
+            self.viewModelDidChange(self)
         }
     }
     
@@ -84,10 +94,23 @@ final class CreateViewModel: CreateViewModeling {
         }
     }
     
-    func locationName(from coordinate: CLLocationCoordinate2D) {
+    func showLocation(_ coordinate: CLLocationCoordinate2D) {
         locationService.closestPlacemark(for: coordinate) { [weak self] in
-            self?.locationName = $0?.subLocality
+            if let placemark = $0 {
+                self?.locationName = placemark.subLocality
+                self?.locationImage = UIImage(systemName: "trash.fill")
+                self?.locationState = .shown
+            } else {
+                self?.locationName = "No location"
+                self?.locationImage = UIImage(systemName: "location.fill")
+            }
         }
+    }
+    
+    func removeUserLocation() {
+        locationState = .notShown
+        locationName = "No location"
+        locationImage = UIImage(systemName: "location.fill")
     }
 }
 

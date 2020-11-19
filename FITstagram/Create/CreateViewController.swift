@@ -48,9 +48,12 @@ final class CreateViewController: UIViewController {
         locationManager.delegate = self
         
         viewModel.viewModelDidChange = { [weak self] viewModel in
-            self?.selectPhotoButton.isHidden = viewModel.image != nil
-            self?.imageView.image = viewModel.image
-            self?.locationLabel.text = viewModel.locationName
+            DispatchQueue.main.async {
+                self?.selectPhotoButton.isHidden = viewModel.image != nil
+                self?.imageView.image = viewModel.image
+                self?.locationLabel.text = viewModel.locationName
+                self?.locationButton.setImage(viewModel.locationImage, for: .normal)
+            }
         }
     }
     
@@ -81,6 +84,15 @@ final class CreateViewController: UIViewController {
     }
     
     @IBAction func locationTapped() {
+        switch viewModel.locationState {
+        case .shown:
+            viewModel.removeUserLocation()
+        case .notShown:
+            requestUserLocation()
+        }
+    }
+    
+    private func requestUserLocation() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
             requestLocation = true
@@ -131,7 +143,7 @@ extension CreateViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        viewModel.locationName(from: location.coordinate)
+        viewModel.showLocation(location.coordinate)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
