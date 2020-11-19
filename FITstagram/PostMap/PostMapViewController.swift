@@ -52,6 +52,14 @@ final class PostMapViewController: UIViewController {
 
         locationManager.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true
+        
+        mapView.setRegion(
+            MKCoordinateRegion(
+                center: viewModel.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+            ),
+            animated: true
+        )
     }
 }
 extension PostMapViewController: MKMapViewDelegate {
