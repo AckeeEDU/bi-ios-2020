@@ -60,6 +60,7 @@
 		F8AEA22B2566954300B4D144 /* PostMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMapViewModel.swift; sourceTree = "<group>"; };
 		F8AEA25C2566C42E00B4D144 /* PostLocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationAnnotationView.swift; sourceTree = "<group>"; };
 		F8AEA25F2566C44A00B4D144 /* PostLocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationAnnotation.swift; sourceTree = "<group>"; };
+		F8AEA2622566C5BA00B4D144 /* Dartford.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Dartford.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +119,7 @@
 				69E1DD8A2525EBE500904133 /* Assets.xcassets */,
 				69E1DD8C2525EBE500904133 /* LaunchScreen.storyboard */,
 				69E1DD8F2525EBE500904133 /* Info.plist */,
+				F8AEA2622566C5BA00B4D144 /* Dartford.gpx */,
 			);
 			path = FITstagram;
 			sourceTree = "<group>";

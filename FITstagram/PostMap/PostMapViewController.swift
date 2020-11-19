@@ -5,6 +5,7 @@ final class PostMapViewController: UIViewController {
     
     private weak var mapView: MKMapView!
     
+    private let locationManager = CLLocationManager()
     private let viewModel: PostMapViewModeling
     
     // MARK: - Initialization
@@ -48,11 +49,14 @@ final class PostMapViewController: UIViewController {
         mapView.register(PostLocationAnnotationView.self, forAnnotationViewWithReuseIdentifier: "PostLocationAnnotationView")
         
         mapView.delegate = self
+
+        locationManager.requestWhenInUseAuthorization()
+        mapView.showsUserLocation = true
     }
 }
-
 extension PostMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else { return nil }
         let postLocationAnnotationView = mapView.dequeueReusableAnnotationView(
             withIdentifier: "PostLocationAnnotationView"
         ) as! PostLocationAnnotationView
