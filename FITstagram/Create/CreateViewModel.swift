@@ -53,6 +53,8 @@ final class CreateViewModel: CreateViewModeling {
         UserDefaults.standard.string(forKey: "username") ?? "username"
     }
     
+    private var currentLocationCoordinate: CLLocationCoordinate2D? = nil
+    
     private let networkService: NetworkServicing
     private let locationService: LocationServicing
     
@@ -77,9 +79,9 @@ final class CreateViewModel: CreateViewModeling {
             "image": image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(),
             "username": username,
             "caption": caption,
-            "lat": nil,
-            "lon": nil,
-            "location": nil
+            "lat": currentLocationCoordinate?.latitude,
+            "lon": currentLocationCoordinate?.longitude,
+            "location": locationName
         ]
         urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: body)
         
@@ -97,17 +99,18 @@ final class CreateViewModel: CreateViewModeling {
     func showLocation(_ coordinate: CLLocationCoordinate2D) {
         locationService.closestPlacemark(for: coordinate) { [weak self] in
             if let placemark = $0 {
+                self?.currentLocationCoordinate = coordinate
                 self?.locationName = placemark.subLocality
                 self?.locationImage = UIImage(systemName: "trash.fill")
                 self?.locationState = .shown
             } else {
-                self?.locationName = "No location"
-                self?.locationImage = UIImage(systemName: "location.fill")
+                self?.removeUserLocation()
             }
         }
     }
     
     func removeUserLocation() {
+        currentLocationCoordinate = nil
         locationState = .notShown
         locationName = "No location"
         locationImage = UIImage(systemName: "location.fill")
