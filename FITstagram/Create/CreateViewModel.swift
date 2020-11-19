@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol CreateViewModeling: AnyObject {
     var caption: String { get set }
     var image: UIImage? { get set }
+    var locationName: String? { get }
     var viewModelDidChange: (CreateViewModeling) -> Void { get set }
     
     func createPost(completion: @escaping (Bool) -> Void)
+    func locationName(from coordinate: CLLocationCoordinate2D)
 }
 
 final class CreateViewModel: CreateViewModeling {
@@ -26,6 +29,14 @@ final class CreateViewModel: CreateViewModeling {
         }
     }
     
+    var locationName: String? {
+        didSet {
+            DispatchQueue.main.async {
+                self.viewModelDidChange(self)
+            }
+        }
+    }
+    
     var viewModelDidChange: (CreateViewModeling) -> Void = { _ in }
     
     private var username: String {
@@ -33,11 +44,16 @@ final class CreateViewModel: CreateViewModeling {
     }
     
     private let networkService: NetworkServicing
+    private let locationService: LocationServicing
     
     // MARK: - Initialization
     
-    init(networkService: NetworkServicing = NetworkService()) {
+    init(
+        networkService: NetworkServicing = NetworkService(),
+        locationService: LocationServicing = LocationService()
+    ) {
         self.networkService = networkService
+        self.locationService = locationService
     }
     
     // MARK: - Public methods
@@ -67,4 +83,11 @@ final class CreateViewModel: CreateViewModeling {
             }
         }
     }
+    
+    func locationName(from coordinate: CLLocationCoordinate2D) {
+        locationService.closestPlacemark(for: coordinate) { [weak self] in
+            self?.locationName = $0?.subLocality
+        }
+    }
 }
+

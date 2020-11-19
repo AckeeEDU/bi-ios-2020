@@ -26,6 +26,7 @@
 		A3E06D45253B0A2C005F6FFB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */; };
 		A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */; };
 		A3EF6BCF2546CC4B0060602F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */; };
+		F8AEA1D22566634600B4D144 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA1D12566634600B4D144 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		F8AEA1D12566634600B4D144 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				A3456E8C255BEFC800451B39 /* Create */,
 				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
 				A3456E8E255BF31A00451B39 /* NetworkService.swift */,
+				F8AEA1D12566634600B4D144 /* LocationService.swift */,
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
 				69E1DD832525EBE500904133 /* SceneDelegate.swift */,
 				69E1DD872525EBE500904133 /* Main.storyboard */,
@@ -223,6 +226,7 @@
 				69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */,
 				A37C707B254C624E000C6394 /* TextCell.swift in Sources */,
 				699686182549C76C004583DD /* PostCell.swift in Sources */,
+				F8AEA1D22566634600B4D144 /* LocationService.swift in Sources */,
 				A3456E83255BE0C300451B39 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
