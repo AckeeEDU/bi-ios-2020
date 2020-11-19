@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -48,6 +49,9 @@ class FeedViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
             cell.post = post
             cell.personTapped = { [weak self] in self?.personTapped(in: post) }
+            cell.photoHeader.locationTapped = { [weak self] in
+                self?.locationTapped(in: post)
+            }
             return cell
         }
     
@@ -73,6 +77,24 @@ class FeedViewController: UIViewController {
         let controller = DummyViewController(color: .red)
         controller.title = post.author
 
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private func locationTapped(in post: Post) {
+        guard
+            let latitude = post.lat,
+            let longitude = post.lon,
+            let location = post.location
+        else { return }
+        let controller = PostMapViewController(
+            viewModel: PostMapViewModel(
+                coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                locationTitle: location,
+                postImage: post.image
+            )
+        )
+        controller.title = post.location
+        
         navigationController?.pushViewController(controller, animated: true)
     }
     

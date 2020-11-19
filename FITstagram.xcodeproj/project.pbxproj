@@ -27,6 +27,10 @@
 		A3EF6BCC2546BB1E0060602F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */; };
 		A3EF6BCF2546CC4B0060602F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */; };
 		F8AEA1D22566634600B4D144 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA1D12566634600B4D144 /* LocationService.swift */; };
+		F8AEA2292566950100B4D144 /* PostMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA2282566950100B4D144 /* PostMapViewController.swift */; };
+		F8AEA22C2566954300B4D144 /* PostMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA22B2566954300B4D144 /* PostMapViewModel.swift */; };
+		F8AEA25D2566C42F00B4D144 /* PostLocationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA25C2566C42E00B4D144 /* PostLocationAnnotationView.swift */; };
+		F8AEA2602566C44A00B4D144 /* PostLocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA25F2566C44A00B4D144 /* PostLocationAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		A3EF6BCB2546BB1E0060602F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A3EF6BCE2546CC4B0060602F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		F8AEA1D12566634600B4D144 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		F8AEA2282566950100B4D144 /* PostMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMapViewController.swift; sourceTree = "<group>"; };
+		F8AEA22B2566954300B4D144 /* PostMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMapViewModel.swift; sourceTree = "<group>"; };
+		F8AEA25C2566C42E00B4D144 /* PostLocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationAnnotationView.swift; sourceTree = "<group>"; };
+		F8AEA25F2566C44A00B4D144 /* PostLocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 				A37C7079254C6239000C6394 /* Profile */,
 				A3456E8C255BEFC800451B39 /* Create */,
 				A3E06D44253B0A2C005F6FFB /* DummyViewController.swift */,
+				F8AEA220256692E700B4D144 /* PostMap */,
 				A3456E8E255BF31A00451B39 /* NetworkService.swift */,
 				F8AEA1D12566634600B4D144 /* LocationService.swift */,
 				69E1DD812525EBE500904133 /* AppDelegate.swift */,
@@ -139,6 +148,17 @@
 				A3CAB24F255291BB0014BAF7 /* Post.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F8AEA220256692E700B4D144 /* PostMap */ = {
+			isa = PBXGroup;
+			children = (
+				F8AEA2282566950100B4D144 /* PostMapViewController.swift */,
+				F8AEA25F2566C44A00B4D144 /* PostLocationAnnotation.swift */,
+				F8AEA25C2566C42E00B4D144 /* PostLocationAnnotationView.swift */,
+				F8AEA22B2566954300B4D144 /* PostMapViewModel.swift */,
+			);
+			path = PostMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8AEA2602566C44A00B4D144 /* PostLocationAnnotation.swift in Sources */,
 				A3456E86255BE40600451B39 /* CreateViewModel.swift in Sources */,
 				69E1DD862525EBE500904133 /* FeedViewController.swift in Sources */,
 				691515102549EB7000F377FA /* ImageCell.swift in Sources */,
@@ -223,9 +244,12 @@
 				A3456E89255BEFC100451B39 /* ProfileViewModel.swift in Sources */,
 				A3456E8F255BF31A00451B39 /* NetworkService.swift in Sources */,
 				69E1DD9A2525FADD00904133 /* LikeButton.swift in Sources */,
+				F8AEA25D2566C42F00B4D144 /* PostLocationAnnotationView.swift in Sources */,
+				F8AEA22C2566954300B4D144 /* PostMapViewModel.swift in Sources */,
 				69E1DD972525F72A00904133 /* PhotoHeader.swift in Sources */,
 				A37C707B254C624E000C6394 /* TextCell.swift in Sources */,
 				699686182549C76C004583DD /* PostCell.swift in Sources */,
+				F8AEA2292566950100B4D144 /* PostMapViewController.swift in Sources */,
 				F8AEA1D22566634600B4D144 /* LocationService.swift in Sources */,
 				A3456E83255BE0C300451B39 /* FeedViewModel.swift in Sources */,
 			);

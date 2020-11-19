@@ -20,7 +20,7 @@ class PostCell: UITableViewCell {
     var post: Post? {
         didSet {
             photoHeader.usernameLabel.text = post?.author
-            photoHeader.locationLabel.text = post?.location
+            photoHeader.locationButton.setTitle(post?.location, for: .normal)
             photoImageView.image = post?.image
             descriptionLabel.text = post?.caption
             followButton.isSelected = false

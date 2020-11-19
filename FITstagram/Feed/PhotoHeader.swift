@@ -9,7 +9,9 @@ import UIKit
 
 class PhotoHeader: UIView {
     weak var usernameLabel: UILabel!
-    weak var locationLabel: UILabel!
+    weak var locationButton: UIButton!
+    
+    var locationTapped: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,19 +42,24 @@ class PhotoHeader: UIView {
 
         self.usernameLabel = usernameLabel
         
-        let locationLabel = UILabel()
-        locationLabel.translatesAutoresizingMaskIntoConstraints = false
-        locationLabel.text = "Location"
-        locationLabel.textAlignment = .center
-        locationLabel.font = .systemFont(ofSize: 14)
-        addSubview(locationLabel)
-
+        let locationButton = UIButton()
+        locationButton.translatesAutoresizingMaskIntoConstraints = false
+        locationButton.setTitle("Location", for: .normal)
+        locationButton.setTitleColor(.black, for: .normal)
+        locationButton.titleLabel?.textAlignment = .center
+        locationButton.titleLabel?.font = .systemFont(ofSize: 14)
+        locationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
+        addSubview(locationButton)
         NSLayoutConstraint.activate([
-            locationLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor),
-            locationLabel.centerXAnchor.constraint(equalTo: margin.centerXAnchor),
-            locationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            locationButton.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor),
+            locationButton.centerXAnchor.constraint(equalTo: margin.centerXAnchor),
+            locationButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
-
-        self.locationLabel = locationLabel
+        self.locationButton = locationButton
+    }
+    
+    @objc
+    private func locationButtonTapped() {
+        locationTapped?()
     }
 }
