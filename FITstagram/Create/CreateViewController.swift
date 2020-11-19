@@ -17,6 +17,7 @@ final class CreateViewController: UIViewController {
     
     private let viewModel: CreateViewModeling
     private let locationManager = CLLocationManager()
+    private var requestLocation = false
     
     // MARK: - Initialization
     
@@ -82,6 +83,7 @@ final class CreateViewController: UIViewController {
     @IBAction func locationTapped() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
+            requestLocation = true
             locationManager.requestWhenInUseAuthorization()
         case .restricted, .denied:
             print("I need location!")
@@ -119,7 +121,9 @@ extension CreateViewController: CLLocationManagerDelegate {
         case .restricted, .denied:
             print("I need location!")
         case .authorizedAlways, .authorizedWhenInUse:
-            manager.startUpdatingLocation()
+            guard requestLocation else { return }
+            requestLocation = false
+            manager.requestLocation()
         @unknown default:
             print("I need location")
         }
