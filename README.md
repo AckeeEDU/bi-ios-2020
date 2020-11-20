@@ -108,3 +108,18 @@ branch: `08-architecture`
 - integrace ViewModelu do ViewControllerů ve storyboardu / kódu
 - přidání `NetworkService` závislosti
 - pokročilé: skrytí implementace za protokoly pro lepší testování a snížení vazeb mezi prvky
+
+## 9. MapKit, CoreLocation
+
+branch: `09-mapkit`
+
+- CoreLocation introduction
+    - získání polohy uživatele
+    - jak pracovat s autorizací
+    - konverze koordinátů na název místa pomocí `CLGeocoder`
+- základní práce s MapKitem
+    - zobrazovaní pinů
+    - custom `MKAnnotation` a `MKAnnotationView`
+    - custom callout
+    - zobrazení polohy uživatele na mapě
+    - základní práce s GPX files
