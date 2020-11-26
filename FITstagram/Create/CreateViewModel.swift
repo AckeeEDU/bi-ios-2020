@@ -75,8 +75,11 @@ final class CreateViewModel: CreateViewModeling {
         urlRequest.allHTTPHeaderFields = ["Content-Type": "application/json"]
         urlRequest.httpMethod = "POST"
         
+        let maxSize = UIScreen.main.bounds.width/UIScreen.main.scale
+        let resizedImage = image?.imageResized(to: CGSize(width: maxSize, height: maxSize))
+        
         let body: [String: Any?] = [
-            "image": image?.jpegData(compressionQuality: 0.5)?.base64EncodedString(),
+            "image": resizedImage?.jpegData(compressionQuality: 0.5)?.base64EncodedString(),
             "username": username,
             "caption": caption,
             "lat": currentLocationCoordinate?.latitude,
