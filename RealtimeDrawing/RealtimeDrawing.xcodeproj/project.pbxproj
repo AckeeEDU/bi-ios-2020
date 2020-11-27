@@ -13,6 +13,7 @@
 		880400D42571133000607561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880400D22571133000607561 /* Main.storyboard */; };
 		880400D62571133400607561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880400D52571133400607561 /* Assets.xcassets */; };
 		880400D92571133400607561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880400D72571133400607561 /* LaunchScreen.storyboard */; };
+		88E869C7257119A000EF066E /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E869C6257119A000EF066E /* CanvasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		880400D52571133400607561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		880400D82571133400607561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		880400DA2571133400607561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88E869C6257119A000EF066E /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				880400CC2571133000607561 /* AppDelegate.swift */,
 				880400CE2571133000607561 /* SceneDelegate.swift */,
 				880400D02571133000607561 /* CanvasViewController.swift */,
+				88E869C6257119A000EF066E /* CanvasView.swift */,
 				880400D22571133000607561 /* Main.storyboard */,
 				880400D52571133400607561 /* Assets.xcassets */,
 				880400D72571133400607561 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				880400D12571133000607561 /* CanvasViewController.swift in Sources */,
 				880400CD2571133000607561 /* AppDelegate.swift in Sources */,
+				88E869C7257119A000EF066E /* CanvasView.swift in Sources */,
 				880400CF2571133000607561 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
