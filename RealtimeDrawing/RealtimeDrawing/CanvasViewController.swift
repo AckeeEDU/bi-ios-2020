@@ -13,9 +13,24 @@ class CanvasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panChanged(_:)))
+        canvasView.addGestureRecognizer(gestureRecognizer)
     }
 
+    @objc func panChanged(_ gestureRecognizer: UIPanGestureRecognizer) {
+        switch gestureRecognizer.state {
+        case .began:
+            break
+        case .changed:
+            print(gestureRecognizer.location(in: canvasView))
+            break
+        case .cancelled, .ended, .failed:
+            break
+        default:
+            break
+        }
+    }
 
 }
 
