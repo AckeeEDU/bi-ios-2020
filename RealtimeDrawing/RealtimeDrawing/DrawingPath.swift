@@ -8,5 +8,6 @@
 import UIKit
 
 class DrawingPath: Codable {
+    var key: String?
     var points: [CGPoint] = []
 }

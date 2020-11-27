@@ -29,13 +29,26 @@ class CanvasViewController: UIViewController {
         scrollView.panGestureRecognizer.require(toFail: drawingGestureRecognizer)
         
         databaseReference = Database.database().reference(withPath: "canvas")
+        
         databaseReference.observe(.childAdded) { [weak self] snapshot in
-            guard let value = snapshot.value else { return }
+            guard let self = self, let value = snapshot.value else { return }
             
             if let path = try? FirebaseDecoder().decode(DrawingPath.self, from: value) {
-                self?.canvasView.paths.append(path)
-                self?.canvasView.setNeedsDisplay()
+                // čára, kterou jsme nakreslili, odešleme na firebase a v zápětí se vrátí v observe bloku -> měli bychom ji v poli 2x!
+                if self.canvasView.paths.contains(where: { $0.key == path.key }) {
+                    return
+                }
+
+                self.canvasView.paths.append(path)
+                self.canvasView.setNeedsDisplay()
             }
+        }
+        
+        databaseReference.observe(.childRemoved) { [weak self] snapshot in
+            if let index = self?.canvasView.paths.firstIndex(where: { $0.key == snapshot.key }) {
+                self?.canvasView.paths.remove(at: index)
+            }
+            self?.canvasView.setNeedsDisplay()
         }
     }
 
@@ -56,6 +69,7 @@ class CanvasViewController: UIViewController {
             guard let newPath = currentPath else { return }
             
             let newPathReference = databaseReference.childByAutoId()
+            newPath.key = newPathReference.key
             let data = try! FirebaseEncoder().encode(newPath)
             
             newPathReference.setValue(data)
