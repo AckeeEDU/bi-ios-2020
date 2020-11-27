@@ -123,3 +123,14 @@ branch: `09-mapkit`
     - custom callout
     - zobrazení polohy uživatele na mapě
     - základní práce s GPX files
+
+## 10. CoreGraphics, Firebase
+
+branch: `10-cg_firebase`
+
+- základy gesture recognizers
+- základy CoreGraphics
+- práce se Swift Package Managerem
+- Firebase
+    - stručný výčet funkcí Firebase
+    - práce s Firebase Database
