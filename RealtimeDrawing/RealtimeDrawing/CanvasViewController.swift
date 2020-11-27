@@ -23,13 +23,15 @@ class CanvasViewController: UIViewController {
         case .began:
             break
         case .changed:
-            print(gestureRecognizer.location(in: canvasView))
+            let point = gestureRecognizer.location(in: canvasView)
+            canvasView.points.append(point)
             break
         case .cancelled, .ended, .failed:
             break
         default:
             break
         }
+        canvasView.setNeedsDisplay()
     }
 
 }
