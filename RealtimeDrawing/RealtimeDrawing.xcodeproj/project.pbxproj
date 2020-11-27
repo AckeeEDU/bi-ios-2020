@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		880400D62571133400607561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880400D52571133400607561 /* Assets.xcassets */; };
 		880400D92571133400607561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880400D72571133400607561 /* LaunchScreen.storyboard */; };
 		886BC650257133B1009A4D48 /* DrawingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886BC64F257133B1009A4D48 /* DrawingPath.swift */; };
+		886BC65825714821009A4D48 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 886BC65725714821009A4D48 /* FirebaseDatabase */; };
+		886BC65C257148AE009A4D48 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 886BC65B257148AE009A4D48 /* CodableFirebase */; };
+		886BC66025714924009A4D48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 886BC65F25714924009A4D48 /* GoogleService-Info.plist */; };
 		88E869C7257119A000EF066E /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E869C6257119A000EF066E /* CanvasView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,7 @@
 		880400D82571133400607561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		880400DA2571133400607561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		886BC64F257133B1009A4D48 /* DrawingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPath.swift; sourceTree = "<group>"; };
+		886BC65F25714924009A4D48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88E869C6257119A000EF066E /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				886BC65C257148AE009A4D48 /* CodableFirebase in Frameworks */,
+				886BC65825714821009A4D48 /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +75,7 @@
 				880400D52571133400607561 /* Assets.xcassets */,
 				880400D72571133400607561 /* LaunchScreen.storyboard */,
 				880400DA2571133400607561 /* Info.plist */,
+				886BC65F25714924009A4D48 /* GoogleService-Info.plist */,
 			);
 			path = RealtimeDrawing;
 			sourceTree = "<group>";
@@ -89,6 +96,10 @@
 			dependencies = (
 			);
 			name = RealtimeDrawing;
+			packageProductDependencies = (
+				886BC65725714821009A4D48 /* FirebaseDatabase */,
+				886BC65B257148AE009A4D48 /* CodableFirebase */,
+			);
 			productName = RealtimeDrawing;
 			productReference = 880400C92571133000607561 /* RealtimeDrawing.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +127,10 @@
 				Base,
 			);
 			mainGroup = 880400C02571133000607561;
+			packageReferences = (
+				886BC65625714821009A4D48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				886BC65A257148AE009A4D48 /* XCRemoteSwiftPackageReference "CodableFirebase" */,
+			);
 			productRefGroup = 880400CA2571133000607561 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880400D92571133400607561 /* LaunchScreen.storyboard in Resources */,
+				886BC66025714924009A4D48 /* GoogleService-Info.plist in Resources */,
 				880400D62571133400607561 /* Assets.xcassets in Resources */,
 				880400D42571133000607561 /* Main.storyboard in Resources */,
 			);
@@ -347,6 +363,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		886BC65625714821009A4D48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+		886BC65A257148AE009A4D48 /* XCRemoteSwiftPackageReference "CodableFirebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alickbass/CodableFirebase.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		886BC65725714821009A4D48 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 886BC65625714821009A4D48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		886BC65B257148AE009A4D48 /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 886BC65A257148AE009A4D48 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 880400C12571133000607561 /* Project object */;
 }
