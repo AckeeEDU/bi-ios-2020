@@ -49,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="aac-fE-V54" id="eg3-nf-8O9"/>
+                        <outlet property="scrollView" destination="pwo-i2-Vyn" id="eza-sw-8r3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

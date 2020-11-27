@@ -9,6 +9,7 @@ import UIKit
 
 class CanvasViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var canvasView: CanvasView!
     
     weak var currentPath: DrawingPath?
@@ -16,8 +17,12 @@ class CanvasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panChanged(_:)))
-        canvasView.addGestureRecognizer(gestureRecognizer)
+        let drawingGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panChanged(_:)))
+        drawingGestureRecognizer.maximumNumberOfTouches = 1
+        canvasView.addGestureRecognizer(drawingGestureRecognizer)
+        
+        scrollView.panGestureRecognizer.minimumNumberOfTouches = 2
+        scrollView.panGestureRecognizer.require(toFail: drawingGestureRecognizer)
     }
 
     @objc func panChanged(_ gestureRecognizer: UIPanGestureRecognizer) {
