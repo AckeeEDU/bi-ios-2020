@@ -7,6 +7,6 @@
 
 import UIKit
 
-class DrawingPath {
+class DrawingPath: Codable {
     var points: [CGPoint] = []
 }

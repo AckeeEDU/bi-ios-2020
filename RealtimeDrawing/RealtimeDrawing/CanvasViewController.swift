@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import CodableFirebase
 
 class CanvasViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var canvasView: CanvasView!
+    
+    private var databaseReference: DatabaseReference!
     
     weak var currentPath: DrawingPath?
     
@@ -23,6 +27,8 @@ class CanvasViewController: UIViewController {
         
         scrollView.panGestureRecognizer.minimumNumberOfTouches = 2
         scrollView.panGestureRecognizer.require(toFail: drawingGestureRecognizer)
+        
+        databaseReference = Database.database().reference(withPath: "canvas")
     }
 
     @objc func panChanged(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -39,6 +45,13 @@ class CanvasViewController: UIViewController {
         case .changed:
             currentPath?.points.append(point)
         case .cancelled, .ended, .failed:
+            guard let newPath = currentPath else { return }
+            
+            let newPathReference = databaseReference.childByAutoId()
+            let data = try! FirebaseEncoder().encode(newPath)
+            
+            newPathReference.setValue(data)
+            
             currentPath = nil
         default:
             break
