@@ -29,6 +29,14 @@ class CanvasViewController: UIViewController {
         scrollView.panGestureRecognizer.require(toFail: drawingGestureRecognizer)
         
         databaseReference = Database.database().reference(withPath: "canvas")
+        databaseReference.observe(.childAdded) { [weak self] snapshot in
+            guard let value = snapshot.value else { return }
+            
+            if let path = try? FirebaseDecoder().decode(DrawingPath.self, from: value) {
+                self?.canvasView.paths.append(path)
+                self?.canvasView.setNeedsDisplay()
+            }
+        }
     }
 
     @objc func panChanged(_ gestureRecognizer: UIPanGestureRecognizer) {
