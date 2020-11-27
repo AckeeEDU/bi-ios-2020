@@ -9,7 +9,7 @@ import UIKit
 
 class CanvasView: UIView {
     
-    var points: [CGPoint] = []
+    var paths: [DrawingPath] = []
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -19,14 +19,12 @@ class CanvasView: UIView {
         context.setLineWidth(2)
         context.setStrokeColor(UIColor.label.cgColor)
         
-        context.beginPath()
-        
-        if let firstPoint = points.first {
-            context.move(to: firstPoint)
+        for path in paths {
+            context.beginPath()
+            context.move(to: path.points.first!) // víme jistě, že tam první máme
+
+            context.addLines(between: path.points)
+            context.drawPath(using: .stroke)
         }
-        context.addLines(between: points)
-        
-        context.drawPath(using: .stroke)
     }
-    
 }

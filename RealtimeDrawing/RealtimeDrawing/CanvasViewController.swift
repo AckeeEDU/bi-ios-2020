@@ -11,6 +11,8 @@ class CanvasViewController: UIViewController {
 
     @IBOutlet weak var canvasView: CanvasView!
     
+    weak var currentPath: DrawingPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,15 +21,20 @@ class CanvasViewController: UIViewController {
     }
 
     @objc func panChanged(_ gestureRecognizer: UIPanGestureRecognizer) {
+        
+        let point = gestureRecognizer.location(in: canvasView)
+        
         switch gestureRecognizer.state {
         case .began:
-            break
+            let newPath = DrawingPath()
+            newPath.points.append(point)
+            canvasView.paths.append(newPath)
+            
+            currentPath = newPath
         case .changed:
-            let point = gestureRecognizer.location(in: canvasView)
-            canvasView.points.append(point)
-            break
+            currentPath?.points.append(point)
         case .cancelled, .ended, .failed:
-            break
+            currentPath = nil
         default:
             break
         }
