@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F5D3A3C2584D80A0037F935 /* FITstagramSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A3B2584D80A0037F935 /* FITstagramSwiftUIApp.swift */; };
+		2F5D3A3E2584D80A0037F935 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A3D2584D80A0037F935 /* ContentView.swift */; };
+		2F5D3A402584D80D0037F935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D3A3F2584D80D0037F935 /* Assets.xcassets */; };
+		2F5D3A432584D80D0037F935 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D3A422584D80D0037F935 /* Preview Assets.xcassets */; };
+		2F5D3A4D2584D8480037F935 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A4C2584D8480037F935 /* FeedView.swift */; };
+		2F5D3A502584D8660037F935 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A4F2584D8660037F935 /* ProfileView.swift */; };
+		2F5D3A552584DC9C0037F935 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A542584DC9C0037F935 /* Post.swift */; };
+		2F5D3A5B2584DCC70037F935 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A5A2584DCC70037F935 /* FeedViewModel.swift */; };
+		2F5D3A602584DCEA0037F935 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A5F2584DCEA0037F935 /* NetworkService.swift */; };
+		2F5D3A672584E60F0037F935 /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A662584E60F0037F935 /* FeedPost.swift */; };
+		2F5D3A6A2584F1470037F935 /* FeedPostMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A692584F1470037F935 /* FeedPostMapView.swift */; };
+		2F5D3A6E2584FE410037F935 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A6D2584FE410037F935 /* CreatePostView.swift */; };
+		2F5D3A7225850ACB0037F935 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A7125850ACB0037F935 /* ImagePicker.swift */; };
+		2F5D3A7625850BE60037F935 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A7525850BE60037F935 /* CreatePostViewModel.swift */; };
+		2F5D3A7925850C100037F935 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A7825850C100037F935 /* LocationService.swift */; };
+		2F5D3A7D25850CAE0037F935 /* RandomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A7C25850CAE0037F935 /* RandomExtensions.swift */; };
+		2F5D3A8125850D790037F935 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A8025850D790037F935 /* Location.swift */; };
+		2F5D3A86258519FC0037F935 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D3A85258519FC0037F935 /* ProfileViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2F5D3A382584D80A0037F935 /* FITstagramSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITstagramSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F5D3A3B2584D80A0037F935 /* FITstagramSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITstagramSwiftUIApp.swift; sourceTree = "<group>"; };
+		2F5D3A3D2584D80A0037F935 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F5D3A3F2584D80D0037F935 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F5D3A422584D80D0037F935 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2F5D3A442584D80D0037F935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F5D3A4C2584D8480037F935 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		2F5D3A4F2584D8660037F935 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2F5D3A542584DC9C0037F935 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2F5D3A5A2584DCC70037F935 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		2F5D3A5F2584DCEA0037F935 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2F5D3A662584E60F0037F935 /* FeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; };
+		2F5D3A692584F1470037F935 /* FeedPostMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostMapView.swift; sourceTree = "<group>"; };
+		2F5D3A6D2584FE410037F935 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		2F5D3A7125850ACB0037F935 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2F5D3A7525850BE60037F935 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
+		2F5D3A7825850C100037F935 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2F5D3A7C25850CAE0037F935 /* RandomExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExtensions.swift; sourceTree = "<group>"; };
+		2F5D3A8025850D790037F935 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2F5D3A85258519FC0037F935 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F5D3A352584D80A0037F935 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F5D3A2F2584D80A0037F935 = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A3A2584D80A0037F935 /* FITstagramSwiftUI */,
+				2F5D3A392584D80A0037F935 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F5D3A392584D80A0037F935 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A382584D80A0037F935 /* FITstagramSwiftUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F5D3A3A2584D80A0037F935 /* FITstagramSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A7B25850CA30037F935 /* Common */,
+				2F5D3A5E2584DCE10037F935 /* Services */,
+				2F5D3A532584DC900037F935 /* Models */,
+				2F5D3A3B2584D80A0037F935 /* FITstagramSwiftUIApp.swift */,
+				2F5D3A4B2584D83B0037F935 /* Views */,
+				2F5D3A3F2584D80D0037F935 /* Assets.xcassets */,
+				2F5D3A442584D80D0037F935 /* Info.plist */,
+				2F5D3A412584D80D0037F935 /* Preview Content */,
+			);
+			path = FITstagramSwiftUI;
+			sourceTree = "<group>";
+		};
+		2F5D3A412584D80D0037F935 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A422584D80D0037F935 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F5D3A4B2584D83B0037F935 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A7025850ABE0037F935 /* Utilities */,
+				2F5D3A6C2584FE300037F935 /* CreatePost */,
+				2F5D3A592584DCB70037F935 /* Profile */,
+				2F5D3A582584DCB20037F935 /* Feed */,
+				2F5D3A3D2584D80A0037F935 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2F5D3A532584DC900037F935 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A542584DC9C0037F935 /* Post.swift */,
+				2F5D3A8025850D790037F935 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2F5D3A582584DCB20037F935 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A4C2584D8480037F935 /* FeedView.swift */,
+				2F5D3A5A2584DCC70037F935 /* FeedViewModel.swift */,
+				2F5D3A662584E60F0037F935 /* FeedPost.swift */,
+				2F5D3A692584F1470037F935 /* FeedPostMapView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		2F5D3A592584DCB70037F935 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A4F2584D8660037F935 /* ProfileView.swift */,
+				2F5D3A85258519FC0037F935 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		2F5D3A5E2584DCE10037F935 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A5F2584DCEA0037F935 /* NetworkService.swift */,
+				2F5D3A7825850C100037F935 /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2F5D3A6C2584FE300037F935 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A6D2584FE410037F935 /* CreatePostView.swift */,
+				2F5D3A7525850BE60037F935 /* CreatePostViewModel.swift */,
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
+		2F5D3A7025850ABE0037F935 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A7125850ACB0037F935 /* ImagePicker.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		2F5D3A7B25850CA30037F935 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D3A7C25850CAE0037F935 /* RandomExtensions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F5D3A372584D80A0037F935 /* FITstagramSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F5D3A472584D80D0037F935 /* Build configuration list for PBXNativeTarget "FITstagramSwiftUI" */;
+			buildPhases = (
+				2F5D3A342584D80A0037F935 /* Sources */,
+				2F5D3A352584D80A0037F935 /* Frameworks */,
+				2F5D3A362584D80A0037F935 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FITstagramSwiftUI;
+			productName = FITstagramSwiftUI;
+			productReference = 2F5D3A382584D80A0037F935 /* FITstagramSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F5D3A302584D80A0037F935 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					2F5D3A372584D80A0037F935 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 2F5D3A332584D80A0037F935 /* Build configuration list for PBXProject "FITstagramSwiftUI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F5D3A2F2584D80A0037F935;
+			productRefGroup = 2F5D3A392584D80A0037F935 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F5D3A372584D80A0037F935 /* FITstagramSwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F5D3A362584D80A0037F935 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5D3A432584D80D0037F935 /* Preview Assets.xcassets in Resources */,
+				2F5D3A402584D80D0037F935 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F5D3A342584D80A0037F935 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5D3A7D25850CAE0037F935 /* RandomExtensions.swift in Sources */,
+				2F5D3A6E2584FE410037F935 /* CreatePostView.swift in Sources */,
+				2F5D3A502584D8660037F935 /* ProfileView.swift in Sources */,
+				2F5D3A7625850BE60037F935 /* CreatePostViewModel.swift in Sources */,
+				2F5D3A3E2584D80A0037F935 /* ContentView.swift in Sources */,
+				2F5D3A5B2584DCC70037F935 /* FeedViewModel.swift in Sources */,
+				2F5D3A672584E60F0037F935 /* FeedPost.swift in Sources */,
+				2F5D3A8125850D790037F935 /* Location.swift in Sources */,
+				2F5D3A4D2584D8480037F935 /* FeedView.swift in Sources */,
+				2F5D3A6A2584F1470037F935 /* FeedPostMapView.swift in Sources */,
+				2F5D3A7225850ACB0037F935 /* ImagePicker.swift in Sources */,
+				2F5D3A7925850C100037F935 /* LocationService.swift in Sources */,
+				2F5D3A3C2584D80A0037F935 /* FITstagramSwiftUIApp.swift in Sources */,
+				2F5D3A552584DC9C0037F935 /* Post.swift in Sources */,
+				2F5D3A86258519FC0037F935 /* ProfileViewModel.swift in Sources */,
+				2F5D3A602584DCEA0037F935 /* NetworkService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2F5D3A452584D80D0037F935 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2F5D3A462584D80D0037F935 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F5D3A482584D80D0037F935 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FITstagramSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = VKFK92G6KE;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FITstagramSwiftUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.jankaltoun.FITstagramSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F5D3A492584D80D0037F935 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FITstagramSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = VKFK92G6KE;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FITstagramSwiftUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.jankaltoun.FITstagramSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F5D3A332584D80A0037F935 /* Build configuration list for PBXProject "FITstagramSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5D3A452584D80D0037F935 /* Debug */,
+				2F5D3A462584D80D0037F935 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F5D3A472584D80D0037F935 /* Build configuration list for PBXNativeTarget "FITstagramSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F5D3A482584D80D0037F935 /* Debug */,
+				2F5D3A492584D80D0037F935 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F5D3A302584D80A0037F935 /* Project object */;
+}
